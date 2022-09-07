@@ -1,0 +1,10 @@
+{
+  "name": "retrickable-ts",
+  "version": "0.0.1",
+  "description": "A Typescript wrapper for the Rebrickable Lego API",
+  "main": "index.js",
+  "repository": "https://github.com/kevanstuart/rebrickable-ts",
+  "author": "Kevan Stuart",
+  "license": "MIT",
+  "private": false
+}
