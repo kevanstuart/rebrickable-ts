@@ -1,26 +1,22 @@
-export enum Endpoints { 
-  /** 
+export enum Endpoints {
+  /**
    * * Colors API
    * * * colors
    * * * colors/{id}
    */
-  'Colors'   = '/lego/colors',
-
-  // 
+  'Colors' = '/lego/colors',
   /**
    * * Elements API
    * * * elements/{element_id}
    */
   'Elements' = '/lego/elements',
-
-  /** 
+  /**
    * * Themes API
    * * * themes
    * * * themes/{id}
    */
   'Themes' = '/lego/themes',
-  
-  /** 
+  /**
    * * Minigfigs API
    * * * minifigs
    * * * minifigs/{set_num}
@@ -30,8 +26,7 @@ export enum Endpoints {
   'Minifigs' = '/lego/minifigs',
   'MinifigParts' = '/lego/minifigs/:set_num/parts',
   'MinifigSets' = '/lego/minifigs/:set_num/sets',
-  
-  /** 
+  /**
    * * Parts API
    * * * parts
    * * * parts/{part_num}
@@ -42,14 +37,12 @@ export enum Endpoints {
   'Parts' = '/lego/parts',
   'PartColors' = '/lego/parts/:part_num/colors',
   'PartColorsSets' = '/lego/parts/:part_num/colors/:color_id/sets',
-
   /**
    * * PartCategories API
    * * * part_categories
    * * * part_categories/{id}
    */
   'PartCategories' = '/lego/part_categories',
-
   /**
    * * Sets API
    * * * sets
@@ -64,7 +57,6 @@ export enum Endpoints {
   'SetsMinifigs' = '/lego/sets/:set_num/minifigs',
   'SetsParts' = '/lego/sets/:set_num/parts',
   'SetsSets' = '/lego/sets/:set_num/sets',
-
   /**
    * * Users API
    * * * users/badges
@@ -88,7 +80,6 @@ export enum Endpoints {
    * * * users/{user_token}/sets
    * * * users/{user_token}/sets/{set_num}
    * * * users/{user_token}/sets/sync
-   * 
    */
   'UserBadges' = '/users/badges',
   'UserToken' = '/users/_token',
@@ -103,5 +94,5 @@ export enum Endpoints {
   'UserSetLists' = '/users/:user_token/setlists',
   'UserSetListSets' = '/users/:user_token/setlists/:list_id/sets',
   'UserSets' = '/users/:user_token/sets',
-  'UserSetSync' = '/users/:user_token/sets/sync'
-};
+  'UserSetSync' = '/users/:user_token/sets/sync',
+}

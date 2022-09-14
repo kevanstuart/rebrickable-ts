@@ -15,6 +15,7 @@ const createPino = (options?: PinoOptions): pino.Logger => pino(options);
 
 export class BaseApiClass {
   public api: AxiosInstance;
+
   public logger: pino.Logger;
 
   constructor(options?: Options) {
@@ -30,8 +31,7 @@ export class BaseApiClass {
 
     const pinoSetup = {
       enabled: !(
-        options?.logOptions?.enabled === undefined ||
-        options?.logOptions.enabled === false
+        options?.logOptions?.enabled === undefined || options?.logOptions.enabled === false
       ),
       ...options?.logOptions,
     };

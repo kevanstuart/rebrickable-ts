@@ -1,6 +1,6 @@
-import { Url } from "url";
+import { Url } from 'node:url';
 
-import { ExternalId } from "../Common/external-id";
+import { ExternalId } from '../Common/external-id';
 
 export interface Part {
   part_num: string;
@@ -8,7 +8,7 @@ export interface Part {
   part_cat_id: number;
   year_from?: number;
   year_to?: number;
-  part_url: Url,
+  part_url: Url;
   part_img_url: Url | null;
   prints?: string[];
   molds?: string[];
