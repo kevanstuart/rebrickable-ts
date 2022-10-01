@@ -1,40 +1,63 @@
 import { IAxiosCacheAdapterOptions, setup } from 'axios-cache-adapter';
-import { AxiosInstance } from 'axios';
-import pino from 'pino';
+import { AxiosInstance, AxiosRequestHeaders } from 'axios';
+import pino, { Logger, LoggerOptions } from 'pino';
 
-import { BaseURL } from '../constants';
-
-export interface Options {
-  logOptions?: pino.LoggerOptions;
-  cacheOptions?: IAxiosCacheAdapterOptions;
-  baseURL?: string;
-}
-
-export type PinoOptions = pino.LoggerOptions | pino.DestinationStream;
-const createPino = (options?: PinoOptions): pino.Logger => pino(options);
+import { BaseURL, Headers, ApplicationOptions } from '../constants';
 
 export class BaseApiClass {
+  /**
+   * The axios instance
+   * @internal
+   */
   public api: AxiosInstance;
 
-  public logger: pino.Logger;
+  /**
+   * The pino logger instance
+   * @internal
+   */
+  public logger: Logger;
 
-  constructor(options?: Options) {
-    const apiSetup = {
-      baseURL: options?.baseURL ?? BaseURL.REST,
-      headers: { 'Content-Type': 'application/json' },
-      cache: {
-        maxAge: options?.cacheOptions?.maxAge || 0,
-        ...options?.cacheOptions,
-      },
+  constructor(options: ApplicationOptions) {
+    this.api = this.setupApi(options);
+    this.logger = this.setupLogging(options);
+  }
+
+  /**
+   * Set up the main API configuration
+   *
+   * @param options - Application options for the API set up
+   * @returns AxiosInstance
+   */
+  private setupApi(options: ApplicationOptions): AxiosInstance {
+    const headers: AxiosRequestHeaders = {
+      'Content-Type': Headers.JSON,
+      Authorization: Headers.AUTH.replace(':key', options.token),
     };
-    this.api = setup(apiSetup);
 
-    const pinoSetup = {
-      enabled: !(
-        options?.logOptions?.enabled === undefined || options?.logOptions.enabled === false
-      ),
+    const cacheOptions: IAxiosCacheAdapterOptions = {
+      maxAge: options?.cacheOptions?.maxAge || 0,
+      ...options?.cacheOptions,
+    };
+
+    return setup({
+      baseURL: options?.baseURL ?? BaseURL.REST,
+      headers: headers,
+      cache: cacheOptions,
+    });
+  }
+
+  /**
+   * Set up the main Logging configuration
+   *
+   * @param options - Application options for the logging set up
+   * @returns Logger
+   */
+  private setupLogging(options: ApplicationOptions): Logger {
+    const pinoOptions: LoggerOptions = {
+      enabled: !!options?.logOptions?.enabled,
       ...options?.logOptions,
     };
-    this.logger = createPino(pinoSetup);
+
+    return pino(pinoOptions);
   }
 }
