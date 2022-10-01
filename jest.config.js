@@ -1,8 +1,7 @@
 // @ts-check
 
-/** @type {import('@jest/types').Config.InitialOptions} */
 const jestConfig = {
-  displayName: 'pokenode-ts',
+  displayName: 'rebrickable-ts',
   clearMocks: true,
   testEnvironment: 'node',
   transform: {
@@ -22,4 +21,5 @@ const jestConfig = {
   testPathIgnorePatterns: ['/node_modules/', '/dist/'],
 };
 
+// eslint-disable-next-line unicorn/prefer-module
 module.exports = jestConfig;

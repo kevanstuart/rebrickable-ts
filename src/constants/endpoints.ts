@@ -53,6 +53,7 @@ export enum Endpoints {
    * * * sets/{set_num}/sets
    */
   'Sets' = '/lego/sets',
+  'Set' = '/lego/sets/:set_num',
   'SetsAlternates' = '/lego/sets/:set_num/alternates',
   'SetsMinifigs' = '/lego/sets/:set_num/minifigs',
   'SetsParts' = '/lego/sets/:set_num/parts',

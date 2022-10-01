@@ -1,40 +1,30 @@
 import { IAxiosCacheAdapterOptions, setup } from 'axios-cache-adapter';
-import { AxiosInstance } from 'axios';
-import pino from 'pino';
+import { AxiosInstance, AxiosRequestHeaders } from 'axios';
 
-import { BaseURL } from '../constants';
-
-export interface Options {
-  logOptions?: pino.LoggerOptions;
-  cacheOptions?: IAxiosCacheAdapterOptions;
-  baseURL?: string;
-}
-
-export type PinoOptions = pino.LoggerOptions | pino.DestinationStream;
-const createPino = (options?: PinoOptions): pino.Logger => pino(options);
+import { BaseURL, Headers, ApplicationOptions } from '../constants';
 
 export class BaseApiClass {
+  /**
+   * The axios instance
+   * @internal
+   */
   public api: AxiosInstance;
 
-  public logger: pino.Logger;
+  constructor(options: ApplicationOptions) {
+    const headers: AxiosRequestHeaders = {
+      'Content-Type': Headers.JSON,
+      Authorization: Headers.AUTH.replace(':key', options.token),
+    };
 
-  constructor(options?: Options) {
-    const apiSetup = {
+    const cacheOptions: IAxiosCacheAdapterOptions = {
+      maxAge: options?.cacheOptions?.maxAge || 0,
+      ...options?.cacheOptions,
+    };
+
+    this.api = setup({
       baseURL: options?.baseURL ?? BaseURL.REST,
-      headers: { 'Content-Type': 'application/json' },
-      cache: {
-        maxAge: options?.cacheOptions?.maxAge || 0,
-        ...options?.cacheOptions,
-      },
-    };
-    this.api = setup(apiSetup);
-
-    const pinoSetup = {
-      enabled: !(
-        options?.logOptions?.enabled === undefined || options?.logOptions.enabled === false
-      ),
-      ...options?.logOptions,
-    };
-    this.logger = createPino(pinoSetup);
+      headers: headers,
+      cache: cacheOptions,
+    });
   }
 }
