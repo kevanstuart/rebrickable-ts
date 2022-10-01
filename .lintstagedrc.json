@@ -1,5 +1,4 @@
 {
   "src/**/*.{js,ts,tsx}": ["eslint src --ext js,ts --fix", "prettier 'src/**/*.[jt]s?(x)' --write"],
-  "**/*.{md,mdx,json}": ["prettier '**/*.{md,mdx,json}' --write", "git add ."],
-  "./yarn.lock": ["lockfile-lint -p ./yarn.lock -a yarn -t yarn -s"]
+  "**/*.{md,mdx,json}": ["prettier '**/*.{md,mdx,json}' --write", "git add ."]
 }

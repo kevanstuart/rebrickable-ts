@@ -1,5 +1,3 @@
-import { Url } from 'node:url';
-
 import { ExternalId } from '../Common/external-id';
 
 export interface Part {
@@ -8,8 +6,8 @@ export interface Part {
   part_cat_id: number;
   year_from?: number;
   year_to?: number;
-  part_url: Url;
-  part_img_url: Url | null;
+  part_url: URL;
+  part_img_url: URL | null;
   prints?: string[];
   molds?: string[];
   alternates?: string[];
@@ -22,7 +20,7 @@ export interface PartColors {
   color_name: string;
   num_sets: number;
   num_set_parts: number;
-  part_img_url: Url;
+  part_img_url: URL;
   year_from?: number;
   year_to?: number;
   elements: string[];

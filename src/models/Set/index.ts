@@ -1,5 +1,3 @@
-import { Url } from 'node:url';
-
 import { Color } from '../Color';
 import { Part } from '../Part';
 
@@ -9,17 +7,33 @@ export interface Set {
   year: number;
   theme_id: number;
   num_parts: number;
-  set_img_url: Url;
-  set_url: Url;
+  set_img_url: URL;
+  set_url: URL;
   last_modified_dt: Date;
 }
 
-export interface AlternateSet extends Set {
-  moc_img_url: Url;
-  moc_url: Url;
-  designer_name: string;
-  designer_url: Url;
+export interface SetRequestParameters {
+  page: number;
+  search: string;
+  theme_id: string;
+  min_year: number;
+  max_year: number;
+  ordering: string;
+  page_size: number;
+  min_parts: number;
+  max_parts: number;
 }
+
+export type ListSetsInput = Partial<SetRequestParameters>;
+
+export interface SetAlternates extends Set {
+  moc_img_url: URL;
+  moc_url: URL;
+  designer_name: string;
+  designer_url: URL;
+}
+
+export type SetsAlternatesInput = Pick<SetRequestParameters, 'page' | 'ordering' | 'page_size'>;
 
 export interface SetParts {
   id: number;
@@ -32,3 +46,16 @@ export interface SetParts {
   element_id: string;
   num_sets: number;
 }
+
+export type SetsPartsInput = Pick<SetRequestParameters, 'page' | 'page_size'>;
+
+export interface SetMinifigs {
+  id: number;
+  set_num: string;
+  set_name: string;
+  quantity: number;
+  set_img_url: URL;
+}
+
+export type SetsMinifigInput = Pick<SetRequestParameters, 'page' | 'page_size'>;
+export type SetsInventoryInput = Pick<SetRequestParameters, 'page' | 'page_size'>;
