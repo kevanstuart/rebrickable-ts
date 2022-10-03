@@ -11,7 +11,7 @@ describe('Sets Api Test Suite', () => {
   let api: SetApiClass;
 
   beforeAll(() => {
-    api = new SetApiClass({ token: 'afc896397f3ca67f045cbc62a5e3973c' });
+    api = new SetApiClass({ token: 'SOME TOKEN' });
   });
 
   it('checks if GetSets returns a list of Sets', async () => {
