@@ -7,8 +7,8 @@ export interface Set {
   year: number;
   theme_id: number;
   num_parts: number;
-  set_img_url: URL;
-  set_url: URL;
+  set_img_url: string;
+  set_url: string;
   last_modified_dt: Date;
 }
 
@@ -27,10 +27,10 @@ export interface SetRequestParameters {
 export type ListSetsInput = Partial<SetRequestParameters>;
 
 export interface SetAlternates extends Set {
-  moc_img_url: URL;
-  moc_url: URL;
+  moc_img_url: string;
+  moc_url: string;
   designer_name: string;
-  designer_url: URL;
+  designer_url: string;
 }
 
 export type SetsAlternatesInput = Pick<SetRequestParameters, 'page' | 'ordering' | 'page_size'>;
@@ -54,7 +54,7 @@ export interface SetMinifigs {
   set_num: string;
   set_name: string;
   quantity: number;
-  set_img_url: URL;
+  set_img_url: string;
 }
 
 export type SetsMinifigInput = Pick<SetRequestParameters, 'page' | 'page_size'>;

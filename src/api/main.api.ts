@@ -1,4 +1,4 @@
-import { ApplicationOptions } from '../constants';
+import { ApplicationOptions } from '../types';
 import { BaseApiClass } from './base.api';
 import { SetApiClass } from './set.api';
 

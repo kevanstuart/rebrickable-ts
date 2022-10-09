@@ -1,3 +1,3 @@
 export * from './models';
 export * from './api';
-export * as Constants from './constants';
+export * as Constants from './types';

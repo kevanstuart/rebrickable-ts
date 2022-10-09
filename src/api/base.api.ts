@@ -1,7 +1,7 @@
 import { IAxiosCacheAdapterOptions, setup } from 'axios-cache-adapter';
 import { AxiosInstance, AxiosRequestHeaders } from 'axios';
 
-import { BaseURL, Headers, ApplicationOptions } from '../constants';
+import { BaseURL, Headers, ApplicationOptions } from '../types';
 
 export class BaseApiClass {
   /**

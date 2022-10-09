@@ -6,8 +6,8 @@ export interface Part {
   part_cat_id: number;
   year_from?: number;
   year_to?: number;
-  part_url: URL;
-  part_img_url: URL | null;
+  part_url: string;
+  part_img_url: string | null;
   prints?: string[];
   molds?: string[];
   alternates?: string[];
@@ -20,7 +20,7 @@ export interface PartColors {
   color_name: string;
   num_sets: number;
   num_set_parts: number;
-  part_img_url: URL;
+  part_img_url: string;
   year_from?: number;
   year_to?: number;
   elements: string[];
