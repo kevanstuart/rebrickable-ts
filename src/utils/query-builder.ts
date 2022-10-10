@@ -1,7 +1,3 @@
-export interface FormatParamsInput {
-  [index: string]: number | string;
-}
-
 export interface Indentifier {
   key: string;
   value: number | string;
@@ -9,13 +5,13 @@ export interface Indentifier {
 
 export interface BuildQueryInput {
   endpoint: string;
-  params?: FormatParamsInput;
+  params?: Record<string, number | string>;
   identifier?: Indentifier;
 }
 
-export type FormatParamsOutput = string | undefined;
-
-export const formatParamsToQueryString = (params: FormatParamsInput): FormatParamsOutput => {
+export const formatParamsToQueryString = (
+  params: Record<string, number | string>
+): string | undefined => {
   if (params.constructor !== Object) return undefined;
 
   const keys = Object.keys(params);

@@ -2,7 +2,7 @@ import { AxiosError, AxiosResponse } from 'axios';
 
 import { buildQueryUrl } from '../utils/query-builder';
 import { BaseApiClass } from './base.api';
-import { Endpoints } from '../types';
+import { ENDPOINTS } from '../types';
 import {
   APIResourceList,
   ListSetsInput,
@@ -23,7 +23,7 @@ import {
 export class SetApiClass extends BaseApiClass {
   public async getSets(params: ListSetsInput = {}): Promise<APIResourceList<Set>> {
     const url = buildQueryUrl({
-      endpoint: Endpoints.Sets,
+      endpoint: ENDPOINTS.SETS.BASE,
       params: { ...params },
     });
 
@@ -38,7 +38,7 @@ export class SetApiClass extends BaseApiClass {
   }
 
   public async getSetBySetNum(set_num: string): Promise<Set> {
-    const url = `${Endpoints.Sets}/${set_num}`;
+    const url = `${ENDPOINTS.SETS.BASE}/${set_num}`;
 
     if (!url) throw new Error('Invalid URL parameters');
 
@@ -55,7 +55,7 @@ export class SetApiClass extends BaseApiClass {
     params?: SetsAlternatesInput
   ): Promise<APIResourceList<SetAlternates>> {
     const url = buildQueryUrl({
-      endpoint: Endpoints.SetsAlternates,
+      endpoint: ENDPOINTS.SETS.ALTERNATES,
       params: { ...params },
       identifier: { key: 'set_num', value: set_num },
     });
@@ -75,7 +75,7 @@ export class SetApiClass extends BaseApiClass {
     params?: SetsMinifigInput
   ): Promise<APIResourceList<SetMinifigs>> {
     const url = buildQueryUrl({
-      endpoint: Endpoints.SetsMinifigs,
+      endpoint: ENDPOINTS.SETS.MINIFIGS,
       params: { ...params },
       identifier: { key: 'set_num', value: set_num },
     });
@@ -95,7 +95,7 @@ export class SetApiClass extends BaseApiClass {
     params?: SetsPartsInput
   ): Promise<APIResourceList<SetParts>> {
     const url = buildQueryUrl({
-      endpoint: Endpoints.SetsParts,
+      endpoint: ENDPOINTS.SETS.PARTS,
       params: { ...params },
       identifier: { key: 'set_num', value: set_num },
     });
@@ -119,7 +119,7 @@ export class SetApiClass extends BaseApiClass {
     params?: SetsInventoryInput
   ): Promise<APIResourceList<Set>> {
     const url = buildQueryUrl({
-      endpoint: Endpoints.SetsSets,
+      endpoint: ENDPOINTS.SETS.SETS,
       params: { ...params },
       identifier: { key: 'set_num', value: set_num },
     });

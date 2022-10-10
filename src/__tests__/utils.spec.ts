@@ -1,12 +1,8 @@
-import { Endpoints } from '../types/endpoints';
-import {
-  formatParamsToQueryString,
-  FormatParamsInput,
-  buildQueryUrl,
-} from '../utils/query-builder';
+import { formatParamsToQueryString, buildQueryUrl } from '../utils/query-builder';
+import { ENDPOINTS } from '../types/endpoints';
 
 describe('Object To Query String Test Suite', () => {
-  const queryStringInput: FormatParamsInput = {
+  const queryStringInput: Record<string, number | string> = {
     page: 2,
     page_size: 1,
     search: 'AT-AT',
@@ -33,13 +29,15 @@ describe('Object To Query String Test Suite', () => {
 });
 
 describe('Build Query URL Test Suite', () => {
-  const inputNoParams = { endpoint: Endpoints.Sets };
+  const inputNoParams = { endpoint: ENDPOINTS.SETS.BASE };
+
   const inputNoSetNum = {
-    endpoint: Endpoints.Sets,
+    endpoint: ENDPOINTS.SETS.BASE,
     params: { page_size: 1 },
   };
+
   const inputFull = {
-    endpoint: Endpoints.MinifigParts,
+    endpoint: ENDPOINTS.MINIFIGS.PARTS,
     params: { page_size: 1 },
     identifier: { key: 'set_num', value: '111-111' },
   };
