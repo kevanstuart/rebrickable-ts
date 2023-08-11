@@ -4,7 +4,7 @@ import { buildQueryUrl } from '../utils/query-builder';
 import { BaseApiClass } from './base.api';
 import { ENDPOINTS } from '../types';
 import {
-  APIResourceList,
+  ApiListResults,
   ListSetsInput,
   Set,
   SetAlternates,
@@ -21,7 +21,7 @@ import {
  * about sets and information that may be attached to a set.
  */
 export class SetApiClass extends BaseApiClass {
-  public async getSets(params: ListSetsInput = {}): Promise<APIResourceList<Set>> {
+  public async getSets(params: ListSetsInput = {}): Promise<ApiListResults<Set>> {
     const url = buildQueryUrl({
       endpoint: ENDPOINTS.SETS.BASE,
       params: { ...params },
@@ -29,10 +29,10 @@ export class SetApiClass extends BaseApiClass {
 
     if (!url) throw new Error('Invalid URL parameters');
 
-    return new Promise<APIResourceList<Set>>((resolve, reject) => {
+    return new Promise<ApiListResults<Set>>((resolve, reject) => {
       this.api
-        .get<APIResourceList<Set>>(url)
-        .then((response: AxiosResponse<APIResourceList<Set>>) => resolve(response.data))
+        .get<ApiListResults<Set>>(url)
+        .then((response: AxiosResponse<ApiListResults<Set>>) => resolve(response.data))
         .catch((error: AxiosError<string>) => reject(error));
     });
   }
@@ -53,7 +53,7 @@ export class SetApiClass extends BaseApiClass {
   public async getSetAlternatesBySetNum(
     set_num: string,
     params?: SetsAlternatesInput
-  ): Promise<APIResourceList<SetAlternates>> {
+  ): Promise<ApiListResults<SetAlternates>> {
     const url = buildQueryUrl({
       endpoint: ENDPOINTS.SETS.ALTERNATES,
       params: { ...params },
@@ -62,10 +62,10 @@ export class SetApiClass extends BaseApiClass {
 
     if (!url) throw new Error('Invalid URL parameters');
 
-    return new Promise<APIResourceList<SetAlternates>>((resolve, reject) => {
+    return new Promise<ApiListResults<SetAlternates>>((resolve, reject) => {
       this.api
-        .get<APIResourceList<SetAlternates>>(url)
-        .then((response: AxiosResponse<APIResourceList<SetAlternates>>) => resolve(response.data))
+        .get<ApiListResults<SetAlternates>>(url)
+        .then((response: AxiosResponse<ApiListResults<SetAlternates>>) => resolve(response.data))
         .catch((error: AxiosError<string>) => reject(error));
     });
   }
@@ -73,7 +73,7 @@ export class SetApiClass extends BaseApiClass {
   public async getSetMinifigsBySetNum(
     set_num: string,
     params?: SetsMinifigInput
-  ): Promise<APIResourceList<SetMinifigs>> {
+  ): Promise<ApiListResults<SetMinifigs>> {
     const url = buildQueryUrl({
       endpoint: ENDPOINTS.SETS.MINIFIGS,
       params: { ...params },
@@ -82,10 +82,10 @@ export class SetApiClass extends BaseApiClass {
 
     if (!url) throw new Error('Invalid URL parameters');
 
-    return new Promise<APIResourceList<SetMinifigs>>((resolve, reject) => {
+    return new Promise<ApiListResults<SetMinifigs>>((resolve, reject) => {
       this.api
-        .get<APIResourceList<SetMinifigs>>(url)
-        .then((response: AxiosResponse<APIResourceList<SetMinifigs>>) => resolve(response.data))
+        .get<ApiListResults<SetMinifigs>>(url)
+        .then((response: AxiosResponse<ApiListResults<SetMinifigs>>) => resolve(response.data))
         .catch((error: AxiosError<string>) => reject(error));
     });
   }
@@ -93,7 +93,7 @@ export class SetApiClass extends BaseApiClass {
   public async getSetPartsBySetNum(
     set_num: string,
     params?: SetsPartsInput
-  ): Promise<APIResourceList<SetParts>> {
+  ): Promise<ApiListResults<SetParts>> {
     const url = buildQueryUrl({
       endpoint: ENDPOINTS.SETS.PARTS,
       params: { ...params },
@@ -102,10 +102,10 @@ export class SetApiClass extends BaseApiClass {
 
     if (!url) throw new Error('Invalid URL parameters');
 
-    return new Promise<APIResourceList<SetParts>>((resolve, reject) => {
+    return new Promise<ApiListResults<SetParts>>((resolve, reject) => {
       this.api
-        .get<APIResourceList<SetParts>>(url)
-        .then((response: AxiosResponse<APIResourceList<SetParts>>) => resolve(response.data))
+        .get<ApiListResults<SetParts>>(url)
+        .then((response: AxiosResponse<ApiListResults<SetParts>>) => resolve(response.data))
         .catch((error: AxiosError<string>) => reject(error));
     });
   }
@@ -117,7 +117,7 @@ export class SetApiClass extends BaseApiClass {
   public async getSubSetsBySetNum(
     set_num: string,
     params?: SetsInventoryInput
-  ): Promise<APIResourceList<Set>> {
+  ): Promise<ApiListResults<Set>> {
     const url = buildQueryUrl({
       endpoint: ENDPOINTS.SETS.SETS,
       params: { ...params },
@@ -126,10 +126,10 @@ export class SetApiClass extends BaseApiClass {
 
     if (!url) throw new Error('Invalid URL parameters');
 
-    return new Promise<APIResourceList<Set>>((resolve, reject) => {
+    return new Promise<ApiListResults<Set>>((resolve, reject) => {
       this.api
-        .get<APIResourceList<Set>>(url)
-        .then((response: AxiosResponse<APIResourceList<Set>>) => resolve(response.data))
+        .get<ApiListResults<Set>>(url)
+        .then((response: AxiosResponse<ApiListResults<Set>>) => resolve(response.data))
         .catch((error: AxiosError<string>) => reject(error));
     });
   }

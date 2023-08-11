@@ -1,7 +1,7 @@
 /* eslint-disable unicorn/no-null */
-import { APIResourceList, Set /* , SetAlternates, SetMinifigs, SetParts */ } from '../models';
+import { ApiListResults, Set } from '../models';
 
-export const getSetsResult: APIResourceList<Set> = {
+export const getSetsResult: ApiListResults<Set> = {
   count: 1,
   previous: null,
   next: null,

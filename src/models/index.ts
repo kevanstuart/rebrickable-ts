@@ -4,4 +4,5 @@ export * from './Color';
 export * from './Theme';
 export * from './Common';
 export * from './Element';
+export * from './Minifig';
 export * from './PartCategory';
