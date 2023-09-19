@@ -4,21 +4,21 @@ import { rebrickableUrls } from '../endpoints'
 import { BaseApi } from './base'
 import type {
   Set,
-  SetsRequestParameters,
-  SetsPartsRequestParameters,
-  SetsInventoryRequestParameters,
-  SetsMinifigsRequestParameters,
-  SetsAlternatesRequestParameters,
-  SetPart,
+  SetsRequest,
+  SetPartsRequest,
+  SetInventoryRequest,
+  SetMinifigsRequest,
+  SetAlternatesRequest,
+  SetAlternate,
   SetMinifig,
-  SetAlternate
+  SetPart
 } from '../models/set'
 
 export class SetsApi extends BaseApi {
   /**
    * Gets a filterable, sortable list of sets from the Rebrickable API
    */
-  public async getSets (params?: SetsRequestParameters): Promise<APIListResponse<Set>> {
+  public async getSets (params?: SetsRequest): Promise<APIListResponse<Set>> {
     const url = getApiQueryFromParams({
       endpoint: rebrickableUrls.sets,
       parameters: params as Record<string, string>
@@ -44,12 +44,12 @@ export class SetsApi extends BaseApi {
   }
 
   public async getSetInventorySets (
-    setNum: string, params?: SetsInventoryRequestParameters
+    setNum: string, params?: SetInventoryRequest
   ): Promise<APIListResponse<Set[]>> {
     const url = getApiQueryFromParams({
       endpoint: rebrickableUrls.setSets,
       identifiers: { set_num: setNum },
-      parameters: params as Record<string, string>
+      parameters: params as Record<string, string> | undefined
     })
 
     if (url === undefined) throw new Error('// GET SET INVENTORY SETS: Invalid URL parameters')
@@ -58,12 +58,12 @@ export class SetsApi extends BaseApi {
   }
 
   public async getSetParts (
-    setNum: string, params?: SetsPartsRequestParameters
+    setNum: string, params?: SetPartsRequest
   ): Promise<APIListResponse<SetPart>> {
     const url = getApiQueryFromParams({
       endpoint: rebrickableUrls.setParts,
       identifiers: { set_num: setNum },
-      parameters: params as Record<string, string>
+      parameters: params as Record<string, string> | undefined
     })
 
     if (url === undefined) throw new Error('// GET SET PARTS: Invalid URL parameters')
@@ -72,12 +72,12 @@ export class SetsApi extends BaseApi {
   }
 
   public async getSetMinifigs (
-    setNum: string, params?: SetsMinifigsRequestParameters
+    setNum: string, params?: SetMinifigsRequest
   ): Promise<APIListResponse<SetMinifig>> {
     const url = getApiQueryFromParams({
       endpoint: rebrickableUrls.setMinifigs,
       identifiers: { set_num: setNum },
-      parameters: params as Record<string, string>
+      parameters: params as Record<string, string> | undefined
     })
 
     if (url === undefined) throw new Error('// GET SET MINIFIGS: Invalid URL parameters')
@@ -86,12 +86,12 @@ export class SetsApi extends BaseApi {
   }
 
   public async getSetAlternateBuilds (
-    setNum: string, params?: SetsAlternatesRequestParameters
+    setNum: string, params?: SetAlternatesRequest
   ): Promise<APIListResponse<SetAlternate>> {
     const url = getApiQueryFromParams({
       endpoint: rebrickableUrls.setAlternates,
       identifiers: { set_num: setNum },
-      parameters: params as Record<string, string>
+      parameters: params as Record<string, string> | undefined
     })
 
     if (url === undefined) throw new Error('// GET SET ALTERNATE BUILDS: Invalid URL parameters')

@@ -31,7 +31,7 @@ describe('Get URL with Identifiers - Query Builder Tests', () => {
     expect(returnedUrl).toEqual(singleParamReturn)
   })
 
-  it.only('Multiple params to be correctly parsed into a query string', () => {
+  it('Multiple params to be correctly parsed into a query string', () => {
     const returnedUrl = getUrlWithIdentifiers(multipleParamUrl, multipleParams)
     expect(returnedUrl).toEqual(multipleParamReturn)
   })
