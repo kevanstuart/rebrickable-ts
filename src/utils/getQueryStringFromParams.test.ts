@@ -1,8 +1,8 @@
 import { getQueryStringFromParams } from './getQuerystringFromParams'
-import { SetsRequestParameters } from '../models/set'
 import { describe, it, expect } from 'vitest'
+import { SetsRequest } from '../models'
 
-const params: SetsRequestParameters = {
+const params: SetsRequest = {
   page: 1,
   min_year: 2002,
   max_year: 2003,
