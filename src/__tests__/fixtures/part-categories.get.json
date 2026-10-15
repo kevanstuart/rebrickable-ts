@@ -1,0 +1,10 @@
+{
+  "request": "/lego/part_categories/11/",
+  "status": 200,
+  "captured": "2026-10-15T09:56:07.390Z",
+  "body": {
+    "id": 11,
+    "name": "Bricks",
+    "part_count": 1822
+  }
+}

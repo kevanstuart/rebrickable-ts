@@ -27,9 +27,14 @@ export interface ClientOptions {
   maxRetries?: number;
 }
 
-export interface RequestOptions {
-  query?: QueryParams;
+/** Per-call options accepted by every resource method */
+export interface CallOptions {
+  /** Cancels the request, including any wait for the rate limiter */
   signal?: AbortSignal;
+}
+
+export interface RequestOptions extends CallOptions {
+  query?: QueryParams;
 }
 
 const sleep = (ms: number, signal?: AbortSignal): Promise<void> =>

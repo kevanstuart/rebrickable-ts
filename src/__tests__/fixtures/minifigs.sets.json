@@ -1,0 +1,20 @@
+{
+  "request": "/lego/minifigs/fig-010697/sets/?page_size=3",
+  "status": 200,
+  "captured": "2026-10-15T09:56:04.736Z",
+  "body": {
+    "count": 1,
+    "next": null,
+    "previous": null,
+    "results": [
+      {
+        "set_num": "30625-1",
+        "name": "Luke Skywalker with Blue Milk",
+        "num_parts": 6,
+        "set_img_url": "https://cdn.rebrickable.com/media/sets/30625-1/76531.jpg",
+        "set_url": "https://rebrickable.com/sets/30625-1/luke-skywalker-with-blue-milk/",
+        "last_modified_dt": "2021-12-02T05:46:48.185848Z"
+      }
+    ]
+  }
+}

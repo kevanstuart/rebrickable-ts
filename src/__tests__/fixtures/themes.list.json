@@ -1,0 +1,27 @@
+{
+  "request": "/lego/themes/?page_size=3",
+  "status": 200,
+  "captured": "2026-10-15T09:56:30.972Z",
+  "body": {
+    "count": 496,
+    "next": "https://rebrickable.com/api/v3/lego/themes/?page=2&page_size=3",
+    "previous": null,
+    "results": [
+      {
+        "id": 1,
+        "parent_id": null,
+        "name": "Technic"
+      },
+      {
+        "id": 3,
+        "parent_id": 1,
+        "name": "Competition"
+      },
+      {
+        "id": 4,
+        "parent_id": 1,
+        "name": "Expert Builder"
+      }
+    ]
+  }
+}

@@ -1,17 +1,33 @@
-import type { ExternalId } from '../Common/external-id';
+/**
+ * A part's IDs in other systems, keyed by system name, e.g.
+ * `{ BrickLink: ['3005pb053'], LEGO: ['72087'] }`.
+ */
+export type PartExternalIds = Record<string, string[]>;
 
+/** A part as it appears in lists and inventories */
 export interface Part {
   part_num: string;
   name: string;
   part_cat_id: number;
-  year_from?: number;
-  year_to?: number;
   part_url: string;
   part_img_url: string | null;
-  prints?: string[];
-  molds?: string[];
-  alternates?: string[];
-  external_ids: ExternalId[];
+  external_ids: PartExternalIds;
+}
+
+/**
+ * A part with its full details, as returned for a single part, inside an
+ * element, or in lists requested with `inc_part_details`.
+ */
+export interface PartDetails extends Part {
+  year_from: number;
+  year_to: number;
+  /** Part numbers of printed versions of this part */
+  prints: string[];
+  /** Part numbers of mold variations of this part */
+  molds: string[];
+  /** Part numbers of alternate parts */
+  alternates: string[];
+  /** Part number of the unprinted part, if this part is a print */
   print_of: string | null;
 }
 

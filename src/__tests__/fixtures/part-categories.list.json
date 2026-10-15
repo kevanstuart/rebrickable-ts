@@ -1,0 +1,27 @@
+{
+  "request": "/lego/part_categories/?page_size=3",
+  "status": 200,
+  "captured": "2026-10-15T09:56:06.063Z",
+  "body": {
+    "count": 76,
+    "next": "https://rebrickable.com/api/v3/lego/part_categories/?page=2&page_size=3",
+    "previous": null,
+    "results": [
+      {
+        "id": 1,
+        "name": "Baseplates",
+        "part_count": 243
+      },
+      {
+        "id": 3,
+        "name": "Bricks Sloped",
+        "part_count": 646
+      },
+      {
+        "id": 4,
+        "name": "Duplo, Quatro and Primo",
+        "part_count": 5200
+      }
+    ]
+  }
+}

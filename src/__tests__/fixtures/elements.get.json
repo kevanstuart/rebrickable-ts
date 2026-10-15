@@ -1,0 +1,155 @@
+{
+  "request": "/lego/elements/4244370/",
+  "status": 200,
+  "captured": "2026-10-15T09:55:57.458Z",
+  "body": {
+    "part": {
+      "part_num": "54200",
+      "name": "Brick Sloped 30° 1 x 1 x 2/3 (Cheese Slope)",
+      "part_cat_id": 3,
+      "year_from": 2004,
+      "year_to": 2026,
+      "part_url": "https://rebrickable.com/parts/54200/brick-sloped-30-1-x-1-x-23-cheese-slope/",
+      "part_img_url": "https://cdn.rebrickable.com/media/parts/elements/4263949.jpg",
+      "prints": [
+        "54200pr0004",
+        "54200pr0005",
+        "54200pr0002",
+        "54200pr0003",
+        "54200pr0001",
+        "54200pr0006",
+        "54200pr0007",
+        "54200pr0013",
+        "54200pr0014",
+        "54200pr0032",
+        "54200pr0031",
+        "54200pr0017",
+        "54200pr0015",
+        "54200pr0016",
+        "54200pr0010",
+        "54200pr0008",
+        "54200pr0020",
+        "54200pr0018",
+        "54200pr0022",
+        "54200pr0019",
+        "54200pr0021",
+        "54200pr0027",
+        "54200pr0023",
+        "54200pr0024",
+        "54200pr0025",
+        "54200pr0026",
+        "54200pr0028",
+        "54200pr0029",
+        "54200pr0033",
+        "54200pr0030",
+        "54200pr0011",
+        "54200pr0035",
+        "54200pr0034",
+        "54200pr0012",
+        "54200pr0040",
+        "54200pr0037",
+        "54200pr0038",
+        "54200pr0009",
+        "54200pr0039",
+        "54200pr0036"
+      ],
+      "molds": [],
+      "alternates": [],
+      "external_ids": {
+        "BrickLink": [
+          "54200"
+        ],
+        "BrickOwl": [
+          "158788"
+        ],
+        "Brickset": [
+          "113476",
+          "117818",
+          "18862",
+          "33847",
+          "35338",
+          "50746",
+          "54200",
+          "63290"
+        ],
+        "LDraw": [
+          "54200"
+        ],
+        "LEGO": [
+          "113476",
+          "117818",
+          "18862",
+          "33847",
+          "35338",
+          "50746",
+          "54200",
+          "63290"
+        ]
+      },
+      "print_of": null
+    },
+    "color": {
+      "id": 15,
+      "name": "White",
+      "rgb": "FFFFFF",
+      "is_trans": false,
+      "external_ids": {
+        "BrickLink": {
+          "ext_ids": [
+            1
+          ],
+          "ext_descrs": [
+            [
+              "White"
+            ]
+          ]
+        },
+        "BrickOwl": {
+          "ext_ids": [
+            92
+          ],
+          "ext_descrs": [
+            [
+              "White"
+            ]
+          ]
+        },
+        "Peeron": {
+          "ext_ids": [
+            null
+          ],
+          "ext_descrs": [
+            [
+              "white"
+            ]
+          ]
+        },
+        "LDraw": {
+          "ext_ids": [
+            15
+          ],
+          "ext_descrs": [
+            [
+              "White"
+            ]
+          ]
+        },
+        "LEGO": {
+          "ext_ids": [
+            1
+          ],
+          "ext_descrs": [
+            [
+              "White",
+              "WHITE V.3"
+            ]
+          ]
+        }
+      }
+    },
+    "element_id": "4244370",
+    "design_id": "50746",
+    "element_img_url": "https://cdn.rebrickable.com/media/parts/elements/4244370.jpg",
+    "part_img_url": "https://cdn.rebrickable.com/media/parts/elements/4244370.jpg"
+  }
+}

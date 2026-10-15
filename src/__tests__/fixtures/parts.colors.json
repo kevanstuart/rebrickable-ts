@@ -1,0 +1,44 @@
+{
+  "request": "/lego/parts/3001/colors/?page_size=3",
+  "status": 200,
+  "captured": "2026-10-15T09:56:14.339Z",
+  "body": {
+    "count": 80,
+    "next": "https://rebrickable.com/api/v3/lego/parts/3001/colors/?page=2&page_size=3",
+    "previous": null,
+    "results": [
+      {
+        "color_id": 0,
+        "color_name": "Black",
+        "num_sets": 1116,
+        "num_set_parts": 4831,
+        "part_img_url": "https://cdn.rebrickable.com/media/parts/elements/300126.jpg",
+        "elements": [
+          "300126"
+        ]
+      },
+      {
+        "color_id": 1,
+        "color_name": "Blue",
+        "num_sets": 674,
+        "num_set_parts": 4558,
+        "part_img_url": "https://cdn.rebrickable.com/media/parts/elements/300123.jpg",
+        "elements": [
+          "300123",
+          "300173"
+        ]
+      },
+      {
+        "color_id": 2,
+        "color_name": "Green",
+        "num_sets": 383,
+        "num_set_parts": 2139,
+        "part_img_url": "https://cdn.rebrickable.com/media/parts/elements/4106356.jpg",
+        "elements": [
+          "300128",
+          "4106356"
+        ]
+      }
+    ]
+  }
+}

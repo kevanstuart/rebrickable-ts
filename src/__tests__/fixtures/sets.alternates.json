@@ -1,0 +1,45 @@
+{
+  "request": "/lego/sets/30386-1/alternates/?page_size=3",
+  "status": 200,
+  "captured": "2026-10-15T09:56:25.421Z",
+  "body": {
+    "count": 18,
+    "next": "https://rebrickable.com/api/v3/lego/sets/30386-1/alternates/?page=2&page_size=3",
+    "previous": null,
+    "results": [
+      {
+        "set_num": "MOC-100250",
+        "name": "Spaceship 3 (30386 C Model)",
+        "year": 2022,
+        "theme_id": 158,
+        "num_parts": 42,
+        "moc_img_url": "https://cdn.rebrickable.com/media/mocs/moc-100250.jpg",
+        "moc_url": "https://rebrickable.com/mocs/MOC-100250/jemunoz0/spaceship-3-30386-c-model/",
+        "designer_name": "jemunoz0",
+        "designer_url": "https://rebrickable.com/users/jemunoz0/mocs/"
+      },
+      {
+        "set_num": "MOC-101118",
+        "name": "Spaceship 4 (30386 C Model)",
+        "year": 2022,
+        "theme_id": 158,
+        "num_parts": 46,
+        "moc_img_url": "https://cdn.rebrickable.com/media/mocs/moc-101118.jpg",
+        "moc_url": "https://rebrickable.com/mocs/MOC-101118/jemunoz0/spaceship-4-30386-c-model/",
+        "designer_name": "jemunoz0",
+        "designer_url": "https://rebrickable.com/users/jemunoz0/mocs/"
+      },
+      {
+        "set_num": "MOC-101885",
+        "name": "Spaceship 5 (30386 C Model)",
+        "year": 2022,
+        "theme_id": 158,
+        "num_parts": 30,
+        "moc_img_url": "https://cdn.rebrickable.com/media/mocs/moc-101885.jpg",
+        "moc_url": "https://rebrickable.com/mocs/MOC-101885/jemunoz0/spaceship-5-30386-c-model/",
+        "designer_name": "jemunoz0",
+        "designer_url": "https://rebrickable.com/users/jemunoz0/mocs/"
+      }
+    ]
+  }
+}

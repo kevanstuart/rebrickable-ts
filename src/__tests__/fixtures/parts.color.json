@@ -1,0 +1,15 @@
+{
+  "request": "/lego/parts/3001/colors/4/",
+  "status": 200,
+  "captured": "2026-10-15T09:56:17.749Z",
+  "body": {
+    "part_img_url": "https://cdn.rebrickable.com/media/parts/elements/300121.jpg",
+    "year_from": 1979,
+    "year_to": 2026,
+    "num_sets": 1016,
+    "num_set_parts": 6393,
+    "elements": [
+      "300121"
+    ]
+  }
+}

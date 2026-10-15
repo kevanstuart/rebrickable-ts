@@ -1,0 +1,32 @@
+{
+  "request": "/lego/parts/3005pr0025/",
+  "status": 200,
+  "captured": "2026-10-15T09:56:12.951Z",
+  "body": {
+    "part_num": "3005pr0025",
+    "name": "Brick 1 x 1 with Blue Milk / Bantha Carton Print",
+    "part_cat_id": 11,
+    "year_from": 2022,
+    "year_to": 2022,
+    "part_url": "https://rebrickable.com/parts/3005pr0025/brick-1-x-1-with-blue-milk-bantha-carton-print/",
+    "part_img_url": "https://cdn.rebrickable.com/media/parts/photos/73/3005pr0025-73-514a4c2d-3a8e-44db-bc04-4da83b6c8e9a.jpg",
+    "prints": [],
+    "molds": [],
+    "alternates": [],
+    "external_ids": {
+      "BrickLink": [
+        "3005pb053"
+      ],
+      "BrickOwl": [
+        "567846"
+      ],
+      "Brickset": [
+        "72087"
+      ],
+      "LEGO": [
+        "72087"
+      ]
+    },
+    "print_of": "3005"
+  }
+}

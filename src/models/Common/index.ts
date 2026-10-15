@@ -1,2 +1,2 @@
-export * from './external-id';
+export * from './params';
 export * from './resource';

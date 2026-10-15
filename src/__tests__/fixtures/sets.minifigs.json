@@ -1,0 +1,33 @@
+{
+  "request": "/lego/sets/75034-1/minifigs/?page_size=3",
+  "status": 200,
+  "captured": "2026-10-15T09:56:26.846Z",
+  "body": {
+    "count": 3,
+    "next": null,
+    "previous": null,
+    "results": [
+      {
+        "id": 7372,
+        "set_num": "fig-002520",
+        "set_name": "Imperial Gunner, Closed Mouth, Silver Imperial Logo",
+        "quantity": 1,
+        "set_img_url": "https://cdn.rebrickable.com/media/sets/fig-002520/175444.jpg"
+      },
+      {
+        "id": 7374,
+        "set_num": "fig-002682",
+        "set_name": "Imperial Gunner, Open Mouth",
+        "quantity": 1,
+        "set_img_url": "https://cdn.rebrickable.com/media/sets/fig-002682/175520.jpg"
+      },
+      {
+        "id": 7373,
+        "set_num": "fig-002681",
+        "set_name": "Royal Guard, Dark Red Hands, 50231 Cape",
+        "quantity": 2,
+        "set_img_url": "https://cdn.rebrickable.com/media/sets/fig-002681/59692.jpg"
+      }
+    ]
+  }
+}

@@ -34,6 +34,15 @@ describe('appendQuery', () => {
     expect(url.search).toBe('?search=Star+Wars+%26+co&page_size=10');
   });
 
+  it('sends true flags as 1 and leaves false flags out', () => {
+    const url = appendQuery(new URL('https://example.com/'), {
+      inc_part_details: true,
+      inc_minifig_parts: false,
+    });
+
+    expect(url.search).toBe('?inc_part_details=1');
+  });
+
   it('rejects values that cannot be sent as a query parameter', () => {
     expect(() => appendQuery(new URL('https://example.com/'), { search: { a: 1 } })).toThrow(
       /search/,

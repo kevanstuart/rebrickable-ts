@@ -1,0 +1,13 @@
+{
+  "request": "/lego/minifigs/fig-010697/",
+  "status": 200,
+  "captured": "2026-10-15T09:56:00.632Z",
+  "body": {
+    "set_num": "fig-010697",
+    "name": "Luke Skywalker, White Robe, Blue Milk Mouth",
+    "num_parts": 4,
+    "set_img_url": "https://cdn.rebrickable.com/media/sets/fig-010697/128774.jpg",
+    "set_url": "https://rebrickable.com/minifigs/fig-010697/luke-skywalker-white-robe-blue-milk-mouth/",
+    "last_modified_dt": "2022-03-07T18:01:51.769449Z"
+  }
+}

@@ -41,6 +41,7 @@
   ],
   "scripts": {
     "build": "tsup",
+    "fixtures": "node --env-file-if-exists=.env scripts/capture-fixtures.ts",
     "format": "biome format --write .",
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
