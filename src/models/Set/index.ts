@@ -1,39 +1,45 @@
-import { Color } from '../Color';
-import { Part } from '../Part';
+import type { Color } from '../Color';
+import type { Part } from '../Part';
 
-export interface Set {
+export interface LegoSet {
   set_num: string;
   name: string;
   year: number;
   theme_id: number;
   num_parts: number;
-  set_img_url: string;
+  set_img_url: string | null;
   set_url: string;
-  last_modified_dt: Date;
+  /** ISO 8601 timestamp */
+  last_modified_dt: string;
 }
 
-export interface SetRequestParameters {
-  page: number;
-  search: string;
-  theme_id: string;
-  min_year: number;
-  max_year: number;
-  ordering: string;
-  page_size: number;
-  min_parts: number;
-  max_parts: number;
+export interface PaginationParameters {
+  page?: number;
+  /** Defaults to 100, maximum 1000 */
+  page_size?: number;
 }
 
-export type ListSetsInput = Partial<SetRequestParameters>;
+export interface ListSetsInput extends PaginationParameters {
+  search?: string;
+  theme_id?: number | string;
+  min_year?: number;
+  max_year?: number;
+  min_parts?: number;
+  max_parts?: number;
+  /** Field to order by; prefix with `-` to reverse */
+  ordering?: string;
+}
 
-export interface SetAlternates extends Set {
+export interface SetAlternates extends LegoSet {
   moc_img_url: string;
   moc_url: string;
   designer_name: string;
   designer_url: string;
 }
 
-export type SetsAlternatesInput = Pick<SetRequestParameters, 'page' | 'ordering' | 'page_size'>;
+export interface SetsAlternatesInput extends PaginationParameters {
+  ordering?: string;
+}
 
 export interface SetParts {
   id: number;
@@ -43,19 +49,22 @@ export interface SetParts {
   color: Color;
   quantity: number;
   is_spare: boolean;
-  element_id: string;
+  element_id: string | null;
   num_sets: number;
 }
 
-export type SetsPartsInput = Pick<SetRequestParameters, 'page' | 'page_size'>;
+export interface SetsPartsInput extends PaginationParameters {
+  /** Return the full part details for each part */
+  inc_part_details?: boolean;
+}
 
 export interface SetMinifigs {
   id: number;
   set_num: string;
   set_name: string;
   quantity: number;
-  set_img_url: string;
+  set_img_url: string | null;
 }
 
-export type SetsMinifigInput = Pick<SetRequestParameters, 'page' | 'page_size'>;
-export type SetsInventoryInput = Pick<SetRequestParameters, 'page' | 'page_size'>;
+export type SetsMinifigInput = PaginationParameters;
+export type SetsInventoryInput = PaginationParameters;
