@@ -1,15 +1,15 @@
 {
-  "name": "retrickable-ts",
+  "name": "rebrickable-client",
   "version": "0.0.1",
-  "private": false,
-  "description": "A Typescript wrapper for the Rebrickable Lego API",
+  "description": "An unofficial TypeScript client for the Rebrickable LEGO API",
   "keywords": [
     "rebrickable",
-    "Rebrickable",
-    "rebrickable-ts",
-    "Rebrickable-ts",
-    "Lego"
+    "lego",
+    "api",
+    "api-client",
+    "typescript"
   ],
+  "homepage": "https://github.com/kevanstuart/rebrickable-ts#readme",
   "bugs": "https://github.com/kevanstuart/rebrickable-ts/issues",
   "repository": {
     "type": "git",
@@ -17,66 +17,50 @@
   },
   "license": "MIT",
   "author": {
-    "name": "Kevan Stuart",
-    "url": "http://sometimesicode.com"
+    "name": "Kevan Stuart"
   },
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "rimraf dist && tsc",
-    "build:ci": "yarn build && yarn types",
-    "format": "prettier 'src/**/*.[jt]s?(x)' --write",
-    "lint": "eslint src --ext js,ts",
-    "lint:ci": "yarn lint:fix && yarn format && yarn sort",
-    "lint:fix": "eslint src --ext js,ts --fix",
-    "prepare": "is-ci || husky install",
-    "prepublishOnly": "yarn build:ci",
-    "reinstall": "rimraf node_modules yarn.lock && yarn cache clean && yarn install --check-files --silent --audit",
-    "sort": "sort-package-json package.json",
-    "test:ci": "jest --ci --runInBand --bail --detectOpenHandles --errorOnDeprecated",
-    "test:coverage": "jest --coverage",
-    "test:dev": "jest --verbose --colors --expand --maxWorkers=50% --detectOpenHandles --errorOnDeprecated --bail",
-    "test:watch": "jest --watch --verbose --colors --expand --maxWorkers=25%",
-    "types": "dts-bundle-generator --config dts-generator.json"
-  },
-  "dependencies": {
-    "axios": "^0.27.2",
-    "axios-cache-adapter": "^2.7.3",
-    "dotenv": "^16.0.3",
-    "tslib": "^2.4.0"
+    "build": "tsup",
+    "format": "biome format --write .",
+    "lint": "biome check .",
+    "lint:fix": "biome check --write .",
+    "prepublishOnly": "yarn verify && yarn build",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:watch": "vitest",
+    "typecheck": "tsc --noEmit",
+    "verify": "yarn typecheck && yarn lint && yarn test"
   },
   "devDependencies": {
-    "@commitlint/cli": "^17.1.2",
-    "@commitlint/config-conventional": "^17.1.0",
-    "@swc/core": "^1.3.3",
-    "@swc/jest": "^0.2.22",
-    "@types/jest": "^29.0.0",
-    "@types/node": "^18.7.15",
-    "@typescript-eslint/eslint-plugin": "^5.37.0",
-    "@typescript-eslint/parser": "^5.37.0",
-    "axios-mock-adapter": "^1.21.2",
-    "dts-bundle-generator": "^6.13.0",
-    "eslint": "^8.23.1",
-    "eslint-config-airbnb-typescript": "^17.0.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jest": "^27.0.4",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-promise": "^6.0.1",
-    "eslint-plugin-tsdoc": "^0.2.17",
-    "eslint-plugin-unicorn": "^43.0.2",
-    "http-status-codes": "^2.2.0",
-    "husky": "^8.0.0",
-    "is-ci": "^3.0.1",
-    "jest": "^29.0.3",
-    "jest-mock-axios": "^4.7.0-beta",
-    "lint-staged": "^13.0.3",
-    "prettier": "^2.7.1",
-    "sort-package-json": "^1.57.0",
-    "ts-node-dev": "^2.0.0",
-    "typescript": "^4.8.2"
+    "@biomejs/biome": "^2.5.15",
+    "@types/node": "^24.19.2",
+    "@vitest/coverage-v8": "^5.0.4",
+    "tsup": "^8.5.1",
+    "typescript": "^5.9.3",
+    "vite": "^8.3.4",
+    "vitest": "^5.0.4"
   },
-  "engine": {
-    "node": ">=16"
+  "engines": {
+    "node": ">=18"
   }
 }

@@ -1,5 +1,5 @@
-import { Color } from '../Color';
-import { Part } from '../Part';
+import type { Color } from '../Color';
+import type { Part } from '../Part';
 
 export interface Element {
   element_id: string;

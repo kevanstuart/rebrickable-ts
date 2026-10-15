@@ -1,4 +1,4 @@
-import { ExternalId } from '../Common/external-id';
+import type { ExternalId } from '../Common/external-id';
 
 export interface Part {
   part_num: string;

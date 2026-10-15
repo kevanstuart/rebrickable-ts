@@ -1,142 +1,97 @@
-/* eslint-disable jest/no-commented-out-tests */
-import { IAxiosCacheAdapterOptions } from 'axios-cache-adapter';
-import MockAdapter from 'axios-mock-adapter';
-import { AxiosError } from 'axios';
+import { describe, expect, it } from 'vitest';
+import type { LegoSet } from '../models';
+import { Rebrickable } from '../rebrickable';
+import { createFakeFetch, page } from './fake-fetch';
 
-// import { StatusCodes } from 'http-status-codes';
-// import axios /* , { AxiosError } */ from 'axios';
+const BASE = 'https://rebrickable.com/api/v3';
 
-// import { APIResourceList, Set /* , SetAlternates, SetMinifigs, SetParts */ } from '../models';
-// import { BaseURL, Endpoints } from '../constants';
-// import { getSetsResult } from './sets.data';
-import { SetApiClass } from '../api/set.api';
+const deathStarTroopers: LegoSet = {
+  set_num: '75034-1',
+  name: 'Death Star Troopers',
+  year: 2014,
+  theme_id: 158,
+  num_parts: 100,
+  set_img_url: 'https://cdn.rebrickable.com/media/sets/75034-1.jpg',
+  set_url: 'https://rebrickable.com/sets/75034-1/',
+  last_modified_dt: '2014-01-01T00:00:00.000000Z',
+};
 
-describe('Sets Api Test Suite', () => {
-  // const validSet = '75034-1';
-  // const invalidSet = '111-111';
+const setup = (...responses: Parameters<typeof createFakeFetch>) => {
+  const fake = createFakeFetch(...responses);
+  const rebrickable = new Rebrickable({
+    apiKey: 'test-key',
+    fetch: fake.fetch,
+    minRequestInterval: 0,
+  });
+  return { ...fake, sets: rebrickable.sets };
+};
 
-  const cacheOptions: IAxiosCacheAdapterOptions = {
-    maxAge: 15 * 60 * 1000,
-    readOnError: (err: AxiosError) =>
-      !err.response?.status || (err.response?.status >= 400 && err.response?.status < 600),
-  };
+describe('SetsResource', () => {
+  it('lists sets with filters', async () => {
+    const { sets, urls } = setup({ body: page([deathStarTroopers]) });
 
-  let api: SetApiClass;
-  let mock: MockAdapter;
+    const data = await sets.list({ page_size: 1, min_year: 2002, search: 'Death Star' });
 
-  beforeAll(() => {
-    api = new SetApiClass({ token: 'SOME_TOKEN', cacheOptions });
-    mock = new MockAdapter(api.api);
+    expect(data.results).toEqual([deathStarTroopers]);
+    expect(urls()).toEqual([`${BASE}/lego/sets/?page_size=1&min_year=2002&search=Death+Star`]);
   });
 
-  afterEach(() => mock.reset());
+  it('iterates over every set across pages', async () => {
+    const second = { ...deathStarTroopers, set_num: '75035-1' };
+    const { sets } = setup(
+      { body: page([deathStarTroopers], `${BASE}/lego/sets/?page=2&theme_id=158`) },
+      { body: page([second]) },
+    );
 
-  it('checks if the Access Token is read from the enviroment', () => {
-    console.log(process.env.TESTS_API_KEY);
-    expect(true).toBe(true);
+    const all: LegoSet[] = [];
+    for await (const set of sets.listAll({ theme_id: 158 })) all.push(set);
+
+    expect(all.map((s) => s.set_num)).toEqual(['75034-1', '75035-1']);
   });
 
-  /* it('checks if GetSets returns a list of Sets', async () => {
-    const params = { page_size: 1, min_year: 2002 };
+  it('does not accept a page when iterating over every set', () => {
+    const { sets } = setup();
 
-    // const url = `${Endpoints.Sets}?page_size=1&min_year=2002`;
-    // mock.onGet(`${BaseURL.REST}${url}`).replyOnce(StatusCodes.OK, getSetsResult);
-    // expect(mock.history.get[0].url).toEqual(url);
-
-    const data: APIResourceList<Set> = await api.getSets(params);
-    expect(data.results[0]).toEqual(expect.objectContaining({ set_num: validSet }));
-  }); */
-
-  /* it('checks if GetSetBySetNum returns a single Set', async () => {
-    const set = getSetsResult.results[0];
-    const url = `${Endpoints.Sets}/${validSet}`;
-    mock.onGet(`${BaseURL.REST}${url}`).replyOnce(StatusCodes.OK, set);
-
-    const data: Set = await api.getSetBySetNum(validSet);
-
-    expect(data.set_num).toBe(validSet);
-    expect(mock.history.get[0].url).toEqual(url);
-  }); */
-
-  /*it('checks if getSetBySetNum returns NOT_FOUND for an invalid Set', async () => {
-    let status = StatusCodes.OK;
-
-    try {
-      await api.getSetBySetNum(invalidSet);
-    } catch (error) {
-      const response: AxiosError<string> = error;
-      status = response.response?.status || StatusCodes.OK;
-    }
-
-    expect(status).toBe(StatusCodes.NOT_FOUND);
+    // @ts-expect-error listAll walks every page itself
+    sets.listAll({ page: 2 });
   });
 
-  it('checks if getAlternatesBySetNum returns the alternate builds for a Set', async () => {
-    const data: APIResourceList<SetAlternates> = await api.getSetAlternatesBySetNum(validSet);
-    expect(data.results.length).toBeGreaterThan(0);
+  it('gets a single set by set number', async () => {
+    const { sets, urls } = setup({ body: deathStarTroopers });
+
+    await expect(sets.get('75034-1')).resolves.toEqual(deathStarTroopers);
+    expect(urls()).toEqual([`${BASE}/lego/sets/75034-1/`]);
   });
 
-  it('checks if getAlternatesBySetNum returns an empty array if no alternates Sets are found', async () => {
-    const data: APIResourceList<SetAlternates> = await api.getSetAlternatesBySetNum(invalidSet);
-    expect(data.results.length).toBe(0);
+  it('rejects an empty set number without making a request', async () => {
+    const { sets, fetch } = setup();
+
+    await expect(sets.get('')).rejects.toThrow(/set_num/);
+    expect(fetch).not.toHaveBeenCalled();
   });
 
-  it('checks if getAlternatesBySetNum returns NOT_FOUND for an invalid Set', async () => {
-    let status = StatusCodes.OK;
+  it.each([
+    ['alternates', '/lego/sets/75034-1/alternates/?ordering=-year', { ordering: '-year' }],
+    ['minifigs', '/lego/sets/75034-1/minifigs/?page=2', { page: 2 }],
+    ['parts', '/lego/sets/75034-1/parts/?page_size=500', { page_size: 500 }],
+    ['subsets', '/lego/sets/75034-1/sets/', {}],
+  ] as const)('requests %s for a set', async (method, path, params) => {
+    const { sets, urls } = setup({ body: page([]) });
 
-    try {
-      await api.getSetAlternatesBySetNum('');
-    } catch (error) {
-      const response: AxiosError<string> = error;
-      status = response.response?.status || StatusCodes.OK;
-    }
+    await sets[method]('75034-1', params);
 
-    expect(status).toBe(StatusCodes.NOT_FOUND);
+    expect(urls()).toEqual([`${BASE}${path}`]);
   });
 
-  it('checks if getMinifigsBySetNum returns the minifigures from a single Set', async () => {
-    const data: APIResourceList<SetMinifigs> = await api.getSetMinifigsBySetNum(validSet);
-    expect(data.results.length).toBeGreaterThan(0);
+  it('sends inc_part_details as 1 when requested', async () => {
+    const { sets, urls } = setup({ body: page([]) }, { body: page([]) });
+
+    await sets.parts('75034-1', { inc_part_details: true });
+    await sets.parts('75034-1', { inc_part_details: false });
+
+    expect(urls()).toEqual([
+      `${BASE}/lego/sets/75034-1/parts/?inc_part_details=1`,
+      `${BASE}/lego/sets/75034-1/parts/`,
+    ]);
   });
-
-  it('checks if getMinifigsBySetNum returns an empty array if no minifigs are found', async () => {
-    const data: APIResourceList<SetMinifigs> = await api.getSetMinifigsBySetNum(invalidSet);
-    expect(data.results.length).toBe(0);
-  });
-
-  it('checks if getMinifigsBySetNum returns NOT_FOUND for an invalid Set', async () => {
-    let status = StatusCodes.OK;
-
-    try {
-      await api.getSetMinifigsBySetNum('');
-    } catch (error) {
-      const response: AxiosError<string> = error;
-      status = response.response?.status || StatusCodes.OK;
-    }
-
-    expect(status).toBe(StatusCodes.NOT_FOUND);
-  });
-
-  it('checks if getSetPartsBySetNum returns the parts from a single set', async () => {
-    const data: APIResourceList<SetParts> = await api.getSetPartsBySetNum(validSet);
-    expect(data.results.length).toBeGreaterThan(0);
-  });
-
-  it('checks if getSetPartsBySetNum returns an empty array if no parts are found', async () => {
-    const data: APIResourceList<SetParts> = await api.getSetPartsBySetNum(invalidSet);
-    expect(data.results.length).toBe(0);
-  });
-
-  it('checks if getSetPartsBySetNum returns NOT_FOUND for an invalid Set', async () => {
-    let status = StatusCodes.OK;
-
-    try {
-      await api.getSetPartsBySetNum('');
-    } catch (error) {
-      const response: AxiosError<string> = error;
-      status = response.response?.status || StatusCodes.OK;
-    }
-
-    expect(status).toBe(StatusCodes.NOT_FOUND);
-  }); */
 });
