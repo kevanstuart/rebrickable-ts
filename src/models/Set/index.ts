@@ -1,4 +1,5 @@
 import type { Color } from '../Color';
+import type { OrderingParameters, PaginationParameters } from '../Common';
 import type { Part } from '../Part';
 
 export interface LegoSet {
@@ -13,39 +14,35 @@ export interface LegoSet {
   last_modified_dt: string;
 }
 
-export interface PaginationParameters {
-  page?: number;
-  /** Defaults to 100, maximum 1000 */
-  page_size?: number;
-}
-
-export interface ListSetsInput extends PaginationParameters {
+export interface ListSetsInput extends PaginationParameters, OrderingParameters {
   search?: string;
   theme_id?: number | string;
   min_year?: number;
   max_year?: number;
   min_parts?: number;
   max_parts?: number;
-  /** Field to order by; prefix with `-` to reverse */
-  ordering?: string;
 }
 
-export interface SetAlternates extends LegoSet {
-  moc_img_url: string;
+/** A MOC that can be built from the parts of a set */
+export interface SetAlternate
+  extends Omit<LegoSet, 'set_url' | 'set_img_url' | 'last_modified_dt'> {
+  moc_img_url: string | null;
   moc_url: string;
   designer_name: string;
   designer_url: string;
 }
 
-export interface SetsAlternatesInput extends PaginationParameters {
-  ordering?: string;
-}
+export interface SetAlternatesInput extends PaginationParameters, OrderingParameters {}
 
-export interface SetParts {
+/**
+ * One line of a set's part inventory. `part` is `PartDetails` when the
+ * inventory is requested with `inc_part_details`.
+ */
+export interface SetPart<P extends Part = Part> {
   id: number;
   inv_part_id: number;
   set_num: string;
-  part: Part;
+  part: P;
   color: Color;
   quantity: number;
   is_spare: boolean;
@@ -53,12 +50,13 @@ export interface SetParts {
   num_sets: number;
 }
 
-export interface SetsPartsInput extends PaginationParameters {
+export interface SetPartsInput extends PaginationParameters {
   /** Return the full part details for each part */
   inc_part_details?: boolean;
 }
 
-export interface SetMinifigs {
+/** A set or minifig contained in another set's inventory */
+export interface SetInventoryItem {
   id: number;
   set_num: string;
   set_name: string;
@@ -66,5 +64,8 @@ export interface SetMinifigs {
   set_img_url: string | null;
 }
 
-export type SetsMinifigInput = PaginationParameters;
-export type SetsInventoryInput = PaginationParameters;
+/** One minifig in a set's inventory */
+export type SetMinifig = SetInventoryItem;
+
+export type SetMinifigsInput = PaginationParameters;
+export type SetSubsetsInput = PaginationParameters;

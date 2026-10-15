@@ -1,0 +1,282 @@
+{
+  "request": "/lego/minifigs/fig-010697/parts/?page_size=3",
+  "status": 200,
+  "captured": "2026-10-15T09:56:01.995Z",
+  "body": {
+    "count": 4,
+    "next": "https://rebrickable.com/api/v3/lego/minifigs/fig-010697/parts/?page=2&page_size=3",
+    "previous": null,
+    "results": [
+      {
+        "id": 5728930,
+        "inv_part_id": 5728930,
+        "part": {
+          "part_num": "3626cpr3311",
+          "name": "Minifig Head Luke Skywalker, Winking Left Eye, Blue Milk on Mouth Print",
+          "part_cat_id": 59,
+          "part_url": "https://rebrickable.com/parts/3626cpr3311/minifig-head-luke-skywalker-winking-left-eye-blue-milk-on-mouth-print/",
+          "part_img_url": "https://cdn.rebrickable.com/media/parts/photos/78/3626cpr3311-78-32ab087c-5587-4112-be9c-a8ba337a0a7e.jpg",
+          "external_ids": {
+            "BrickLink": [
+              "3626pb3011"
+            ],
+            "BrickOwl": [
+              "696939"
+            ],
+            "Brickset": [
+              "72086"
+            ],
+            "LEGO": [
+              "72086"
+            ]
+          }
+        },
+        "color": {
+          "id": 78,
+          "name": "Light Nougat",
+          "rgb": "F6D7B3",
+          "is_trans": false,
+          "external_ids": {
+            "BrickLink": {
+              "ext_ids": [
+                90
+              ],
+              "ext_descrs": [
+                [
+                  "Light Nougat"
+                ]
+              ]
+            },
+            "BrickOwl": {
+              "ext_ids": [
+                65
+              ],
+              "ext_descrs": [
+                [
+                  "Light Flesh"
+                ]
+              ]
+            },
+            "LEGO": {
+              "ext_ids": [
+                283
+              ],
+              "ext_descrs": [
+                [
+                  "Light Nougat",
+                  "L.NOUGAT"
+                ]
+              ]
+            },
+            "Peeron": {
+              "ext_ids": [
+                null
+              ],
+              "ext_descrs": [
+                [
+                  "ltflesh"
+                ]
+              ]
+            },
+            "LDraw": {
+              "ext_ids": [
+                78
+              ],
+              "ext_descrs": [
+                [
+                  "Light_Flesh"
+                ]
+              ]
+            }
+          }
+        },
+        "set_num": "fig-010697",
+        "quantity": 1,
+        "is_spare": false,
+        "element_id": "6322225",
+        "num_sets": 1
+      },
+      {
+        "id": 5728929,
+        "inv_part_id": 5728929,
+        "part": {
+          "part_num": "92746",
+          "name": "Hair Tousled and Layered",
+          "part_cat_id": 65,
+          "part_url": "https://rebrickable.com/parts/92746/hair-tousled-and-layered/",
+          "part_img_url": "https://cdn.rebrickable.com/media/parts/elements/4624849.jpg",
+          "external_ids": {
+            "BrickLink": [
+              "92746"
+            ],
+            "BrickOwl": [
+              "586545"
+            ],
+            "Brickset": [
+              "92746"
+            ],
+            "LDraw": [
+              "92746"
+            ],
+            "LEGO": [
+              "92746"
+            ]
+          }
+        },
+        "color": {
+          "id": 19,
+          "name": "Tan",
+          "rgb": "E4CD9E",
+          "is_trans": false,
+          "external_ids": {
+            "BrickLink": {
+              "ext_ids": [
+                2
+              ],
+              "ext_descrs": [
+                [
+                  "Tan"
+                ]
+              ]
+            },
+            "BrickOwl": {
+              "ext_ids": [
+                89
+              ],
+              "ext_descrs": [
+                [
+                  "Tan"
+                ]
+              ]
+            },
+            "LEGO": {
+              "ext_ids": [
+                5
+              ],
+              "ext_descrs": [
+                [
+                  "Brick yellow",
+                  "BRICK-YEL"
+                ]
+              ]
+            },
+            "Peeron": {
+              "ext_ids": [
+                null
+              ],
+              "ext_descrs": [
+                [
+                  "tan"
+                ]
+              ]
+            },
+            "LDraw": {
+              "ext_ids": [
+                19
+              ],
+              "ext_descrs": [
+                [
+                  "Tan"
+                ]
+              ]
+            }
+          }
+        },
+        "set_num": "fig-010697",
+        "quantity": 1,
+        "is_spare": false,
+        "element_id": "4624849",
+        "num_sets": 26
+      },
+      {
+        "id": 5728928,
+        "inv_part_id": 5728928,
+        "part": {
+          "part_num": "970c27pr0650",
+          "name": "Hips and White Legs with White Leggings, Puttees Loose, Thin Wrap Print",
+          "part_cat_id": 61,
+          "part_url": "https://rebrickable.com/parts/970c27pr0650/hips-and-white-legs-with-white-leggings-puttees-loose-thin-wrap-print/",
+          "part_img_url": "https://cdn.rebrickable.com/media/parts/elements/6069921.jpg",
+          "external_ids": {
+            "BrickLink": [
+              "970c00pb0325"
+            ],
+            "BrickOwl": [
+              "467749"
+            ],
+            "Brickset": [
+              "17259"
+            ],
+            "LEGO": [
+              "17259"
+            ]
+          }
+        },
+        "color": {
+          "id": 15,
+          "name": "White",
+          "rgb": "FFFFFF",
+          "is_trans": false,
+          "external_ids": {
+            "BrickLink": {
+              "ext_ids": [
+                1
+              ],
+              "ext_descrs": [
+                [
+                  "White"
+                ]
+              ]
+            },
+            "BrickOwl": {
+              "ext_ids": [
+                92
+              ],
+              "ext_descrs": [
+                [
+                  "White"
+                ]
+              ]
+            },
+            "Peeron": {
+              "ext_ids": [
+                null
+              ],
+              "ext_descrs": [
+                [
+                  "white"
+                ]
+              ]
+            },
+            "LDraw": {
+              "ext_ids": [
+                15
+              ],
+              "ext_descrs": [
+                [
+                  "White"
+                ]
+              ]
+            },
+            "LEGO": {
+              "ext_ids": [
+                1
+              ],
+              "ext_descrs": [
+                [
+                  "White",
+                  "WHITE V.3"
+                ]
+              ]
+            }
+          }
+        },
+        "set_num": "fig-010697",
+        "quantity": 1,
+        "is_spare": false,
+        "element_id": "6069921",
+        "num_sets": 14
+      }
+    ]
+  }
+}

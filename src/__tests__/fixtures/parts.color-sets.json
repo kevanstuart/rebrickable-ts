@@ -1,0 +1,42 @@
+{
+  "request": "/lego/parts/3001/colors/4/sets/?page_size=3",
+  "status": 200,
+  "captured": "2026-10-15T09:56:20.772Z",
+  "body": {
+    "count": 1133,
+    "next": "https://rebrickable.com/api/v3/lego/parts/3001/colors/4/sets/?page=2&page_size=3",
+    "previous": null,
+    "results": [
+      {
+        "set_num": "10018-1",
+        "name": "Darth Maul",
+        "year": 2001,
+        "theme_id": 171,
+        "num_parts": 1868,
+        "set_img_url": "https://cdn.rebrickable.com/media/sets/10018-1/120261.jpg",
+        "set_url": "https://rebrickable.com/sets/10018-1/darth-maul/",
+        "last_modified_dt": "2019-12-01T14:01:17.839410Z"
+      },
+      {
+        "set_num": "10019-1",
+        "name": "Rebel Blockade Runner",
+        "year": 2001,
+        "theme_id": 171,
+        "num_parts": 1748,
+        "set_img_url": "https://cdn.rebrickable.com/media/sets/10019-1/14107.jpg",
+        "set_url": "https://rebrickable.com/sets/10019-1/rebel-blockade-runner/",
+        "last_modified_dt": "2021-11-27T08:21:58.692346Z"
+      },
+      {
+        "set_num": "10128-1",
+        "name": "Train Level Crossing",
+        "year": 2003,
+        "theme_id": 105,
+        "num_parts": 327,
+        "set_img_url": "https://cdn.rebrickable.com/media/sets/10128-1/10955.jpg",
+        "set_url": "https://rebrickable.com/sets/10128-1/train-level-crossing/",
+        "last_modified_dt": "2016-04-23T11:51:46.431375Z"
+      }
+    ]
+  }
+}

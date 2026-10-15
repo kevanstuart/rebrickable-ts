@@ -23,12 +23,19 @@ export const buildPath = (template: string, params: PathParams = {}): string =>
 
 /**
  * Appends query parameters to a URL, skipping `undefined` values.
+ * Booleans are flags in the Rebrickable API: `true` is sent as `1`
+ * and `false` is left out.
  */
 export const appendQuery = (url: URL, query: QueryParams = {}): URL => {
   for (const [key, value] of Object.entries(query)) {
-    if (value === undefined) continue;
+    if (value === undefined || value === false) continue;
 
-    if (!['string', 'number', 'boolean'].includes(typeof value)) {
+    if (value === true) {
+      url.searchParams.set(key, '1');
+      continue;
+    }
+
+    if (typeof value !== 'string' && typeof value !== 'number') {
       throw new TypeError(`Unsupported value for query parameter "${key}"`);
     }
 

@@ -1,0 +1,8 @@
+{
+  "request": "/lego/sets/111-111/",
+  "status": 404,
+  "captured": "2026-10-15T09:56:33.788Z",
+  "body": {
+    "detail": "No Set matches the given query."
+  }
+}

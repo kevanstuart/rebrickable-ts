@@ -1,0 +1,397 @@
+{
+  "request": "/lego/sets/75034-1/parts/?page_size=3&inc_part_details=1",
+  "status": 200,
+  "captured": "2026-10-15T09:56:29.642Z",
+  "body": {
+    "count": 48,
+    "next": "https://rebrickable.com/api/v3/lego/sets/75034-1/parts/?inc_part_details=1&page=2&page_size=3",
+    "previous": null,
+    "results": [
+      {
+        "id": 273108,
+        "inv_part_id": 273108,
+        "part": {
+          "part_num": "93273",
+          "name": "Brick Curved 4 x 1 Double, No Studs",
+          "part_cat_id": 37,
+          "year_from": 2011,
+          "year_to": 2026,
+          "part_url": "https://rebrickable.com/parts/93273/brick-curved-4-x-1-double-no-studs/",
+          "part_img_url": "https://cdn.rebrickable.com/media/parts/elements/4613153.jpg",
+          "prints": [
+            "93273pr0008",
+            "93273pr0009",
+            "93273pr0010",
+            "93273pr9995",
+            "93273pr0004",
+            "93273pr0003",
+            "93273pr0027",
+            "93273pr9996",
+            "93273pr0025",
+            "93273pr0018",
+            "93273pr9994",
+            "93273pr0013",
+            "93273pr0002",
+            "93273pr0011",
+            "93273pr0012",
+            "93273pr0005",
+            "93273pr9988",
+            "93273pr9999",
+            "93273pr9998",
+            "93273pr0015",
+            "93273pr0016",
+            "93273pr0026",
+            "93273pr9993",
+            "93273pr0019",
+            "93273pr0021",
+            "93273pr9991",
+            "93273pr0020",
+            "93273pr9992",
+            "93273pr0022",
+            "93273pr0023",
+            "93273pr0024",
+            "93273pr9989",
+            "93273pr0028",
+            "93273pr0029",
+            "93273pr0030",
+            "93273pr0032",
+            "93273pr0034",
+            "93273pr0035",
+            "93273pr0031",
+            "93273pr0036",
+            "93273pr0033",
+            "93273pr0001",
+            "93273pr0014",
+            "93273pr0017",
+            "93273pr0007",
+            "93273pr9997",
+            "93273pr0006"
+          ],
+          "molds": [],
+          "alternates": [],
+          "external_ids": {
+            "BrickLink": [
+              "93273"
+            ],
+            "BrickOwl": [
+              "264231"
+            ],
+            "Brickset": [
+              "93273"
+            ],
+            "LDraw": [
+              "93273"
+            ],
+            "LEGO": [
+              "93273"
+            ]
+          },
+          "print_of": null
+        },
+        "color": {
+          "id": 0,
+          "name": "Black",
+          "rgb": "05131D",
+          "is_trans": false,
+          "external_ids": {
+            "BrickLink": {
+              "ext_ids": [
+                11
+              ],
+              "ext_descrs": [
+                [
+                  "Black"
+                ]
+              ]
+            },
+            "BrickOwl": {
+              "ext_ids": [
+                38
+              ],
+              "ext_descrs": [
+                [
+                  "Black"
+                ]
+              ]
+            },
+            "LEGO": {
+              "ext_ids": [
+                26,
+                342
+              ],
+              "ext_descrs": [
+                [
+                  "Black",
+                  "BLACK"
+                ],
+                [
+                  "CONDUCT. BLACK"
+                ]
+              ]
+            },
+            "Peeron": {
+              "ext_ids": [
+                null
+              ],
+              "ext_descrs": [
+                [
+                  "black"
+                ]
+              ]
+            },
+            "LDraw": {
+              "ext_ids": [
+                0,
+                256
+              ],
+              "ext_descrs": [
+                [
+                  "Black"
+                ],
+                [
+                  "Rubber_Black"
+                ]
+              ]
+            }
+          }
+        },
+        "set_num": "75034-1",
+        "quantity": 1,
+        "is_spare": false,
+        "element_id": "4613153",
+        "num_sets": 380
+      },
+      {
+        "id": 169773,
+        "inv_part_id": 169773,
+        "part": {
+          "part_num": "3660",
+          "name": "Brick Sloped Inverted 45° 2 x 2 [Ovoid Bottom Pin, Bar-sized Stud Holes]",
+          "part_cat_id": 3,
+          "year_from": 1976,
+          "year_to": 2026,
+          "part_url": "https://rebrickable.com/parts/3660/brick-sloped-inverted-45-2-x-2-ovoid-bottom-pin-bar-sized-stud-holes/",
+          "part_img_url": "https://cdn.rebrickable.com/media/parts/elements/366026.jpg",
+          "prints": [
+            "3660pr0001",
+            "3660pr0002",
+            "3660pr0005",
+            "3660pr0010",
+            "3660pr0009",
+            "3660pr0003",
+            "3660pr0006",
+            "3660pr0008",
+            "3660pr0007",
+            "3660pr0004"
+          ],
+          "molds": [
+            "76959",
+            "3660b",
+            "3660a",
+            "7261"
+          ],
+          "alternates": [
+            "3660b"
+          ],
+          "external_ids": {
+            "BrickLink": [
+              "3660"
+            ],
+            "BrickOwl": [
+              "384426"
+            ],
+            "Brickset": [
+              "3660"
+            ],
+            "LDraw": [
+              "3660b",
+              "3660c"
+            ],
+            "LEGO": [
+              "3660"
+            ]
+          },
+          "print_of": null
+        },
+        "color": {
+          "id": 0,
+          "name": "Black",
+          "rgb": "05131D",
+          "is_trans": false,
+          "external_ids": {
+            "BrickLink": {
+              "ext_ids": [
+                11
+              ],
+              "ext_descrs": [
+                [
+                  "Black"
+                ]
+              ]
+            },
+            "BrickOwl": {
+              "ext_ids": [
+                38
+              ],
+              "ext_descrs": [
+                [
+                  "Black"
+                ]
+              ]
+            },
+            "LEGO": {
+              "ext_ids": [
+                26,
+                342
+              ],
+              "ext_descrs": [
+                [
+                  "Black",
+                  "BLACK"
+                ],
+                [
+                  "CONDUCT. BLACK"
+                ]
+              ]
+            },
+            "Peeron": {
+              "ext_ids": [
+                null
+              ],
+              "ext_descrs": [
+                [
+                  "black"
+                ]
+              ]
+            },
+            "LDraw": {
+              "ext_ids": [
+                0,
+                256
+              ],
+              "ext_descrs": [
+                [
+                  "Black"
+                ],
+                [
+                  "Rubber_Black"
+                ]
+              ]
+            }
+          }
+        },
+        "set_num": "75034-1",
+        "quantity": 1,
+        "is_spare": false,
+        "element_id": "366026",
+        "num_sets": 566
+      },
+      {
+        "id": 358366,
+        "inv_part_id": 358366,
+        "part": {
+          "part_num": "64644",
+          "name": "Equipment Telescope / Torch / Spyglass, Support Round 1 x 1 x 1 2/3",
+          "part_cat_id": 27,
+          "year_from": 2009,
+          "year_to": 2026,
+          "part_url": "https://rebrickable.com/parts/64644/equipment-telescope-torch-spyglass-support-round-1-x-1-x-1-23/",
+          "part_img_url": "https://cdn.rebrickable.com/media/parts/elements/4538456.jpg",
+          "prints": [],
+          "molds": [],
+          "alternates": [],
+          "external_ids": {
+            "BrickLink": [
+              "64644"
+            ],
+            "BrickOwl": [
+              "90664"
+            ],
+            "Brickset": [
+              "64644"
+            ],
+            "LDraw": [
+              "64644"
+            ],
+            "LEGO": [
+              "64644"
+            ]
+          },
+          "print_of": null
+        },
+        "color": {
+          "id": 0,
+          "name": "Black",
+          "rgb": "05131D",
+          "is_trans": false,
+          "external_ids": {
+            "BrickLink": {
+              "ext_ids": [
+                11
+              ],
+              "ext_descrs": [
+                [
+                  "Black"
+                ]
+              ]
+            },
+            "BrickOwl": {
+              "ext_ids": [
+                38
+              ],
+              "ext_descrs": [
+                [
+                  "Black"
+                ]
+              ]
+            },
+            "LEGO": {
+              "ext_ids": [
+                26,
+                342
+              ],
+              "ext_descrs": [
+                [
+                  "Black",
+                  "BLACK"
+                ],
+                [
+                  "CONDUCT. BLACK"
+                ]
+              ]
+            },
+            "Peeron": {
+              "ext_ids": [
+                null
+              ],
+              "ext_descrs": [
+                [
+                  "black"
+                ]
+              ]
+            },
+            "LDraw": {
+              "ext_ids": [
+                0,
+                256
+              ],
+              "ext_descrs": [
+                [
+                  "Black"
+                ],
+                [
+                  "Rubber_Black"
+                ]
+              ]
+            }
+          }
+        },
+        "set_num": "75034-1",
+        "quantity": 3,
+        "is_spare": false,
+        "element_id": "4538456",
+        "num_sets": 334
+      }
+    ]
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "request": "/lego/sets/65771-1/sets/?page_size=3",
+  "status": 200,
+  "captured": "2026-10-15T09:56:35.150Z",
+  "body": {
+    "count": 3,
+    "next": null,
+    "previous": null,
+    "results": [
+      {
+        "id": 2439,
+        "set_num": "7259-1",
+        "set_name": "ARC-170 Starfighter",
+        "quantity": 1,
+        "set_img_url": "https://cdn.rebrickable.com/media/sets/7259-1/56154.jpg"
+      },
+      {
+        "id": 552,
+        "set_num": "7252-1",
+        "set_name": "Droid Tri-Fighter",
+        "quantity": 1,
+        "set_img_url": "https://cdn.rebrickable.com/media/sets/7252-1/93698.jpg"
+      },
+      {
+        "id": 88,
+        "set_num": "6966-1",
+        "set_name": "Jedi Starfighter - Mini",
+        "quantity": 1,
+        "set_img_url": "https://cdn.rebrickable.com/media/sets/6966-1/119867.jpg"
+      }
+    ]
+  }
+}

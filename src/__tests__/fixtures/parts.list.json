@@ -1,0 +1,81 @@
+{
+  "request": "/lego/parts/?page_size=3&part_cat_id=11",
+  "status": 200,
+  "captured": "2026-10-15T09:56:08.825Z",
+  "body": {
+    "count": 1824,
+    "next": "https://rebrickable.com/api/v3/lego/parts/?page=2&page_size=3&part_cat_id=11",
+    "previous": null,
+    "results": [
+      {
+        "part_num": "14716",
+        "name": "Brick 1 x 1 x 3",
+        "part_cat_id": 11,
+        "part_url": "https://rebrickable.com/parts/14716/brick-1-x-1-x-3/",
+        "part_img_url": "https://cdn.rebrickable.com/media/parts/elements/6061702.jpg",
+        "external_ids": {
+          "BrickLink": [
+            "14716"
+          ],
+          "BrickOwl": [
+            "868453"
+          ],
+          "Brickset": [
+            "14716"
+          ],
+          "LDraw": [
+            "14716"
+          ],
+          "LEGO": [
+            "14716"
+          ]
+        }
+      },
+      {
+        "part_num": "22886",
+        "name": "Brick 1 x 2 x 3 with Bottom Stud Holder",
+        "part_cat_id": 11,
+        "part_url": "https://rebrickable.com/parts/22886/brick-1-x-2-x-3-with-bottom-stud-holder/",
+        "part_img_url": "https://cdn.rebrickable.com/media/parts/elements/6153776.jpg",
+        "external_ids": {
+          "BrickLink": [
+            "22886"
+          ],
+          "BrickOwl": [
+            "944127"
+          ],
+          "Brickset": [
+            "22886"
+          ],
+          "LDraw": [
+            "22886"
+          ],
+          "LEGO": [
+            "22886"
+          ]
+        }
+      },
+      {
+        "part_num": "22886pr0001",
+        "name": "Brick 1 x 2 x 3 with White BluePrint Lines on Dark Blue Background Print",
+        "part_cat_id": 11,
+        "part_url": "https://rebrickable.com/parts/22886pr0001/brick-1-x-2-x-3-with-white-blueprint-lines-on-dark-blue-background-print/",
+        "part_img_url": "https://cdn.rebrickable.com/media/parts/elements/6422508.jpg",
+        "external_ids": {
+          "BrickLink": [
+            "22886pb23"
+          ],
+          "BrickOwl": [
+            "47531"
+          ],
+          "Brickset": [
+            "101703"
+          ],
+          "LEGO": [
+            "101703"
+          ]
+        }
+      }
+    ]
+  }
+}

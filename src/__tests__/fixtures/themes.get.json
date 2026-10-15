@@ -1,0 +1,10 @@
+{
+  "request": "/lego/themes/158/",
+  "status": 200,
+  "captured": "2026-10-15T09:56:32.292Z",
+  "body": {
+    "id": 158,
+    "parent_id": null,
+    "name": "Star Wars"
+  }
+}

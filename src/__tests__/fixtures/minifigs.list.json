@@ -1,0 +1,36 @@
+{
+  "request": "/lego/minifigs/?page_size=3&in_theme_id=158",
+  "status": 200,
+  "captured": "2026-10-15T09:55:59.096Z",
+  "body": {
+    "count": 1351,
+    "next": "https://rebrickable.com/api/v3/lego/minifigs/?in_theme_id=158&page=2&page_size=3",
+    "previous": null,
+    "results": [
+      {
+        "set_num": "fig-000056",
+        "name": "Clone Trooper Lieutenant, Dark Azure Markings, Plain Legs",
+        "num_parts": 4,
+        "set_img_url": "https://cdn.rebrickable.com/media/sets/fig-000056/62183.jpg",
+        "set_url": "https://rebrickable.com/minifigs/fig-000056/clone-trooper-lieutenant-dark-azure-markings-plain-legs/",
+        "last_modified_dt": "2020-06-22T18:16:25.628494Z"
+      },
+      {
+        "set_num": "fig-000058",
+        "name": "Clone Trooper, Phase I Armor, Angry, Plain Legs",
+        "num_parts": 4,
+        "set_img_url": "https://cdn.rebrickable.com/media/sets/fig-000058/66020.jpg",
+        "set_url": "https://rebrickable.com/minifigs/fig-000058/clone-trooper-phase-i-armor-angry-plain-legs/",
+        "last_modified_dt": "2020-06-22T18:37:21.971254Z"
+      },
+      {
+        "set_num": "fig-000064",
+        "name": "Clone Trooper, 91st Mobile Reconnaissance Corps, Dark Red Markings",
+        "num_parts": 4,
+        "set_img_url": "https://cdn.rebrickable.com/media/sets/fig-000064/64969.jpg",
+        "set_url": "https://rebrickable.com/minifigs/fig-000064/clone-trooper-91st-mobile-reconnaissance-corps-dark-red-markings/",
+        "last_modified_dt": "2023-02-07T05:53:24.551945Z"
+      }
+    ]
+  }
+}

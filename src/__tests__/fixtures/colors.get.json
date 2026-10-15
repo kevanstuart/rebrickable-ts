@@ -1,0 +1,64 @@
+{
+  "request": "/lego/colors/4/",
+  "status": 200,
+  "captured": "2026-10-15T09:55:56.034Z",
+  "body": {
+    "id": 4,
+    "name": "Red",
+    "rgb": "C91A09",
+    "is_trans": false,
+    "external_ids": {
+      "BrickLink": {
+        "ext_ids": [
+          5
+        ],
+        "ext_descrs": [
+          [
+            "Red"
+          ]
+        ]
+      },
+      "BrickOwl": {
+        "ext_ids": [
+          81
+        ],
+        "ext_descrs": [
+          [
+            "Red"
+          ]
+        ]
+      },
+      "LEGO": {
+        "ext_ids": [
+          21
+        ],
+        "ext_descrs": [
+          [
+            "Bright red",
+            "BR.RED"
+          ]
+        ]
+      },
+      "Peeron": {
+        "ext_ids": [
+          null
+        ],
+        "ext_descrs": [
+          [
+            "red"
+          ]
+        ]
+      },
+      "LDraw": {
+        "ext_ids": [
+          4
+        ],
+        "ext_descrs": [
+          [
+            "Red"
+          ]
+        ]
+      }
+    }
+  }
+}

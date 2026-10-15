@@ -1,0 +1,42 @@
+{
+  "request": "/lego/sets/?page_size=3&theme_id=158",
+  "status": 200,
+  "captured": "2026-10-15T09:56:22.171Z",
+  "body": {
+    "count": 1053,
+    "next": "https://rebrickable.com/api/v3/lego/sets/?page=2&page_size=3&theme_id=158",
+    "previous": null,
+    "results": [
+      {
+        "set_num": "10195-1",
+        "name": "Republic Dropship with AT-OT",
+        "year": 2009,
+        "theme_id": 158,
+        "num_parts": 1758,
+        "set_img_url": "https://cdn.rebrickable.com/media/sets/10195-1/16026.jpg",
+        "set_url": "https://rebrickable.com/sets/10195-1/republic-dropship-with-at-ot/",
+        "last_modified_dt": "2026-10-11T05:49:17.678411Z"
+      },
+      {
+        "set_num": "20006-1",
+        "name": "Clone Turbo Tank",
+        "year": 2008,
+        "theme_id": 158,
+        "num_parts": 64,
+        "set_img_url": "https://cdn.rebrickable.com/media/sets/20006-1/233.jpg",
+        "set_url": "https://rebrickable.com/sets/20006-1/clone-turbo-tank/",
+        "last_modified_dt": "2021-01-28T00:58:28.122459Z"
+      },
+      {
+        "set_num": "20007-1",
+        "name": "Republic Attack Cruiser",
+        "year": 2009,
+        "theme_id": 158,
+        "num_parts": 84,
+        "set_img_url": "https://cdn.rebrickable.com/media/sets/20007-1/5508.jpg",
+        "set_url": "https://rebrickable.com/sets/20007-1/republic-attack-cruiser/",
+        "last_modified_dt": "2021-01-28T13:19:10.499164Z"
+      }
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "request": "/lego/sets/75034-1/",
+  "status": 200,
+  "captured": "2026-10-15T09:56:23.498Z",
+  "body": {
+    "set_num": "75034-1",
+    "name": "Death Star Troopers",
+    "year": 2014,
+    "theme_id": 158,
+    "num_parts": 100,
+    "set_img_url": "https://cdn.rebrickable.com/media/sets/75034-1/1302.jpg",
+    "set_url": "https://rebrickable.com/sets/75034-1/death-star-troopers/",
+    "last_modified_dt": "2016-05-29T00:32:51.549134Z"
+  }
+}

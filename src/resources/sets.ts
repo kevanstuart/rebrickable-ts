@@ -1,22 +1,21 @@
 import { ENDPOINTS } from '../endpoints';
-import type { HttpClient } from '../http/client';
+import type { CallOptions, HttpClient } from '../http/client';
 import { buildPath } from '../http/url';
 import type {
+  AllPagesInput,
   APIResourceList,
   LegoSet,
   ListSetsInput,
-  SetAlternates,
-  SetMinifigs,
-  SetParts,
-  SetsAlternatesInput,
-  SetsInventoryInput,
-  SetsMinifigInput,
-  SetsPartsInput,
+  PartDetails,
+  SetAlternate,
+  SetAlternatesInput,
+  SetInventoryItem,
+  SetMinifig,
+  SetMinifigsInput,
+  SetPart,
+  SetPartsInput,
+  SetSubsetsInput,
 } from '../models';
-
-export interface CallOptions {
-  signal?: AbortSignal;
-}
 
 /**
  * Sets, and the inventories attached to a set.
@@ -41,7 +40,7 @@ export class SetsResource {
    * `page_size` defaults to 1000, the maximum, to keep the number of requests low.
    */
   listAll(
-    params: Omit<ListSetsInput, 'page'> = {},
+    params: AllPagesInput<ListSetsInput> = {},
     options: CallOptions = {},
   ): AsyncGenerator<LegoSet> {
     return this.#http.paginate(ENDPOINTS.SETS.BASE, { ...options, query: params });
@@ -55,9 +54,9 @@ export class SetsResource {
   /** MOCs that can be built entirely from the parts in this set */
   async alternates(
     setNum: string,
-    params: SetsAlternatesInput = {},
+    params: SetAlternatesInput = {},
     options: CallOptions = {},
-  ): Promise<APIResourceList<SetAlternates>> {
+  ): Promise<APIResourceList<SetAlternate>> {
     return this.#http.get(buildPath(ENDPOINTS.SETS.ALTERNATES, { set_num: setNum }), {
       ...options,
       query: params,
@@ -67,34 +66,46 @@ export class SetsResource {
   /** Minifigs in this set's inventory */
   async minifigs(
     setNum: string,
-    params: SetsMinifigInput = {},
+    params: SetMinifigsInput = {},
     options: CallOptions = {},
-  ): Promise<APIResourceList<SetMinifigs>> {
+  ): Promise<APIResourceList<SetMinifig>> {
     return this.#http.get(buildPath(ENDPOINTS.SETS.MINIFIGS, { set_num: setNum }), {
       ...options,
       query: params,
     });
   }
 
-  /** Parts in this set's inventory */
+  /**
+   * Parts in this set's inventory. Pass `inc_part_details: true` to get
+   * each part's full details.
+   */
+  parts(
+    setNum: string,
+    params: SetPartsInput & { inc_part_details: true },
+    options?: CallOptions,
+  ): Promise<APIResourceList<SetPart<PartDetails>>>;
+  parts(
+    setNum: string,
+    params?: SetPartsInput,
+    options?: CallOptions,
+  ): Promise<APIResourceList<SetPart>>;
   async parts(
     setNum: string,
-    params: SetsPartsInput = {},
+    params: SetPartsInput = {},
     options: CallOptions = {},
-  ): Promise<APIResourceList<SetParts>> {
-    const { inc_part_details, ...rest } = params;
+  ): Promise<APIResourceList<SetPart>> {
     return this.#http.get(buildPath(ENDPOINTS.SETS.PARTS, { set_num: setNum }), {
       ...options,
-      query: { ...rest, inc_part_details: inc_part_details ? 1 : undefined },
+      query: params,
     });
   }
 
   /** Sets included in this set's inventory, e.g. the sets inside a bundle */
   async subsets(
     setNum: string,
-    params: SetsInventoryInput = {},
+    params: SetSubsetsInput = {},
     options: CallOptions = {},
-  ): Promise<APIResourceList<LegoSet>> {
+  ): Promise<APIResourceList<SetInventoryItem>> {
     return this.#http.get(buildPath(ENDPOINTS.SETS.SETS, { set_num: setNum }), {
       ...options,
       query: params,
