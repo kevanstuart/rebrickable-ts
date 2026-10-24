@@ -8,6 +8,7 @@ import type {
   SetInventoryItem,
   SetMinifig,
   SetPart,
+  Theme,
 } from '../models';
 import colorsGet from './fixtures/colors.get.json';
 import colorsList from './fixtures/colors.list.json';
@@ -18,6 +19,8 @@ import setsMinifigs from './fixtures/sets.minifigs.json';
 import setsPartsDetails from './fixtures/sets.parts.details.json';
 import setsParts from './fixtures/sets.parts.json';
 import setsSubsets from './fixtures/sets.subsets.json';
+import themesGet from './fixtures/themes.get.json';
+import themesList from './fixtures/themes.list.json';
 
 /**
  * Checks that the models match real API responses captured by `yarn fixtures`.
@@ -43,6 +46,15 @@ describe('models match captured API responses', () => {
       setsParts.body satisfies APIResourceList<SetPart>,
       setsPartsDetails.body satisfies APIResourceList<SetPart<PartDetails>>,
       setsSubsets.body satisfies APIResourceList<SetInventoryItem>,
+    ];
+
+    expect(checked).not.toContain(undefined);
+  });
+
+  it('themes', () => {
+    const checked: unknown[] = [
+      themesGet.body satisfies Theme,
+      themesList.body satisfies APIResourceList<Theme>,
     ];
 
     expect(checked).not.toContain(undefined);
