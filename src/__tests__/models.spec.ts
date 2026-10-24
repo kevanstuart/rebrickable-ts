@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import type {
   APIResourceList,
+  Color,
   LegoSet,
   PartDetails,
   SetAlternate,
@@ -8,6 +9,8 @@ import type {
   SetMinifig,
   SetPart,
 } from '../models';
+import colorsGet from './fixtures/colors.get.json';
+import colorsList from './fixtures/colors.list.json';
 import setsAlternates from './fixtures/sets.alternates.json';
 import setsGet from './fixtures/sets.get.json';
 import setsList from './fixtures/sets.list.json';
@@ -22,6 +25,15 @@ import setsSubsets from './fixtures/sets.subsets.json';
  * doesn't send, or types it differently, `yarn typecheck` fails.
  */
 describe('models match captured API responses', () => {
+  it('colors', () => {
+    const checked: unknown[] = [
+      colorsGet.body satisfies Color,
+      colorsList.body satisfies APIResourceList<Color>,
+    ];
+
+    expect(checked).not.toContain(undefined);
+  });
+
   it('sets', () => {
     const checked: unknown[] = [
       setsGet.body satisfies LegoSet,
