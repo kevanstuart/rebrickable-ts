@@ -1,4 +1,5 @@
 import { type ClientOptions, HttpClient } from './http/client';
+import { ColorsResource } from './resources/colors';
 import { SetsResource } from './resources/sets';
 
 /**
@@ -11,11 +12,13 @@ import { SetsResource } from './resources/sets';
  * ```
  */
 export class Rebrickable {
+  readonly colors: ColorsResource;
   readonly sets: SetsResource;
 
   constructor(options: ClientOptions) {
     const http = new HttpClient(options);
 
+    this.colors = new ColorsResource(http);
     this.sets = new SetsResource(http);
   }
 }
