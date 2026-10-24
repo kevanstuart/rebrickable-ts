@@ -33,6 +33,21 @@ describe.skipIf(!apiKey)('live API', { timeout: 30_000 }, () => {
     });
   });
 
+  describe('themes', () => {
+    it('gets a theme by ID', async () => {
+      const theme = await rebrickable.themes.get(158);
+
+      expect(theme).toEqual({ id: 158, parent_id: null, name: 'Star Wars' });
+    });
+
+    it('lists themes', async () => {
+      const themes = await rebrickable.themes.list({ page_size: 5 });
+
+      expect(themes.count).toBeGreaterThan(0);
+      expect(themes.results).toHaveLength(5);
+    });
+  });
+
   describe('sets', () => {
     it('gets a set by set number', async () => {
       const set = await rebrickable.sets.get('75034-1');
