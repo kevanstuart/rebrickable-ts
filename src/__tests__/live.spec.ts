@@ -33,6 +33,21 @@ describe.skipIf(!apiKey)('live API', { timeout: 30_000 }, () => {
     });
   });
 
+  describe('part categories', () => {
+    it('gets a part category by ID', async () => {
+      const category = await rebrickable.partCategories.get(11);
+
+      expect(category).toMatchObject({ id: 11, name: 'Bricks', part_count: expect.any(Number) });
+    });
+
+    it('lists part categories', async () => {
+      const categories = await rebrickable.partCategories.list({ page_size: 5 });
+
+      expect(categories.count).toBeGreaterThan(0);
+      expect(categories.results).toHaveLength(5);
+    });
+  });
+
   describe('themes', () => {
     it('gets a theme by ID', async () => {
       const theme = await rebrickable.themes.get(158);

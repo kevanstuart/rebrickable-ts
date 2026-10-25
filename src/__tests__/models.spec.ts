@@ -3,6 +3,7 @@ import type {
   APIResourceList,
   Color,
   LegoSet,
+  PartCategory,
   PartDetails,
   SetAlternate,
   SetInventoryItem,
@@ -12,6 +13,8 @@ import type {
 } from '../models';
 import colorsGet from './fixtures/colors.get.json';
 import colorsList from './fixtures/colors.list.json';
+import partCategoriesGet from './fixtures/part-categories.get.json';
+import partCategoriesList from './fixtures/part-categories.list.json';
 import setsAlternates from './fixtures/sets.alternates.json';
 import setsGet from './fixtures/sets.get.json';
 import setsList from './fixtures/sets.list.json';
@@ -32,6 +35,15 @@ describe('models match captured API responses', () => {
     const checked: unknown[] = [
       colorsGet.body satisfies Color,
       colorsList.body satisfies APIResourceList<Color>,
+    ];
+
+    expect(checked).not.toContain(undefined);
+  });
+
+  it('part categories', () => {
+    const checked: unknown[] = [
+      partCategoriesGet.body satisfies PartCategory,
+      partCategoriesList.body satisfies APIResourceList<PartCategory>,
     ];
 
     expect(checked).not.toContain(undefined);
