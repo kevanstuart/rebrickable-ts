@@ -33,6 +33,19 @@ describe.skipIf(!apiKey)('live API', { timeout: 30_000 }, () => {
     });
   });
 
+  describe('elements', () => {
+    it('gets an element by element ID', async () => {
+      const element = await rebrickable.elements.get('4244370');
+
+      expect(element).toMatchObject({
+        element_id: '4244370',
+        design_id: '50746',
+        part: { part_num: '54200', year_from: expect.any(Number) },
+        color: { id: 15, name: 'White' },
+      });
+    });
+  });
+
   describe('part categories', () => {
     it('gets a part category by ID', async () => {
       const category = await rebrickable.partCategories.get(11);

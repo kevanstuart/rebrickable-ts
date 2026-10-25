@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import type {
   APIResourceList,
   Color,
+  Element,
   LegoSet,
   PartCategory,
   PartDetails,
@@ -13,6 +14,7 @@ import type {
 } from '../models';
 import colorsGet from './fixtures/colors.get.json';
 import colorsList from './fixtures/colors.list.json';
+import elementsGet from './fixtures/elements.get.json';
 import partCategoriesGet from './fixtures/part-categories.get.json';
 import partCategoriesList from './fixtures/part-categories.list.json';
 import setsAlternates from './fixtures/sets.alternates.json';
@@ -36,6 +38,12 @@ describe('models match captured API responses', () => {
       colorsGet.body satisfies Color,
       colorsList.body satisfies APIResourceList<Color>,
     ];
+
+    expect(checked).not.toContain(undefined);
+  });
+
+  it('elements', () => {
+    const checked: unknown[] = [elementsGet.body satisfies Element];
 
     expect(checked).not.toContain(undefined);
   });
