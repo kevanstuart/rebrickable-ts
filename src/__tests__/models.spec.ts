@@ -4,7 +4,10 @@ import type {
   Color,
   Element,
   LegoSet,
+  Part,
   PartCategory,
+  PartColor,
+  PartColorDetails,
   PartDetails,
   SetAlternate,
   SetInventoryItem,
@@ -17,6 +20,13 @@ import colorsList from './fixtures/colors.list.json';
 import elementsGet from './fixtures/elements.get.json';
 import partCategoriesGet from './fixtures/part-categories.get.json';
 import partCategoriesList from './fixtures/part-categories.list.json';
+import partsColor from './fixtures/parts.color.json';
+import partsColorSets from './fixtures/parts.color-sets.json';
+import partsColors from './fixtures/parts.colors.json';
+import partsGet from './fixtures/parts.get.json';
+import partsGetPrinted from './fixtures/parts.get.printed.json';
+import partsListDetails from './fixtures/parts.list.details.json';
+import partsList from './fixtures/parts.list.json';
 import setsAlternates from './fixtures/sets.alternates.json';
 import setsGet from './fixtures/sets.get.json';
 import setsList from './fixtures/sets.list.json';
@@ -52,6 +62,20 @@ describe('models match captured API responses', () => {
     const checked: unknown[] = [
       partCategoriesGet.body satisfies PartCategory,
       partCategoriesList.body satisfies APIResourceList<PartCategory>,
+    ];
+
+    expect(checked).not.toContain(undefined);
+  });
+
+  it('parts', () => {
+    const checked: unknown[] = [
+      partsList.body satisfies APIResourceList<Part>,
+      partsListDetails.body satisfies APIResourceList<PartDetails>,
+      partsGet.body satisfies PartDetails,
+      partsGetPrinted.body satisfies PartDetails,
+      partsColors.body satisfies APIResourceList<PartColor>,
+      partsColor.body satisfies PartColorDetails,
+      partsColorSets.body satisfies APIResourceList<LegoSet>,
     ];
 
     expect(checked).not.toContain(undefined);

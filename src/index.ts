@@ -6,5 +6,6 @@ export { Rebrickable } from './rebrickable';
 export type { ColorsResource } from './resources/colors';
 export type { ElementsResource } from './resources/elements';
 export type { PartCategoriesResource } from './resources/part-categories';
+export type { PartsResource } from './resources/parts';
 export type { SetsResource } from './resources/sets';
 export type { ThemesResource } from './resources/themes';
