@@ -50,6 +50,14 @@ describe('SetsResource', () => {
     sets.listAll({ page: 2 });
   });
 
+  it('only accepts a numeric theme ID', async () => {
+    const { sets, fetch } = setup();
+
+    // @ts-expect-error theme_id is a number; a list like '158,171' is rejected
+    await expect(sets.list({ theme_id: '158,171' })).rejects.toThrow(TypeError);
+    expect(fetch).not.toHaveBeenCalled();
+  });
+
   it('gets a single set by set number', async () => {
     const { sets, urls } = setup({ body: setsGet.body });
 

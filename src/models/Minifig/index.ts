@@ -9,7 +9,7 @@ import type { LegoSet, SetPart, SetPartsInput } from '../Set';
 export type Minifig = Omit<LegoSet, 'year' | 'theme_id'>;
 
 /** A set a minifig has appeared in; like `LegoSet` but without a year or theme */
-export type MinifigSet = Omit<LegoSet, 'year' | 'theme_id'>;
+export type MinifigSet = Minifig;
 
 /**
  * One line of a minifig's part inventory, where `set_num` is the minifig
@@ -23,8 +23,11 @@ export interface ListMinifigsInput extends PaginationParameters, OrderingParamet
   max_parts?: number;
   /** Only minifigs that appear in this set, e.g. `30625-1` */
   in_set_num?: string;
-  /** Only minifigs that appear in sets of this theme */
-  in_theme_id?: number | string;
+  /**
+   * Only minifigs that appear in sets of this theme. Rebrickable ignores an
+   * invalid value and returns every minifig, so it's checked before sending
+   */
+  in_theme_id?: number;
 }
 
 export type MinifigPartsInput = SetPartsInput;

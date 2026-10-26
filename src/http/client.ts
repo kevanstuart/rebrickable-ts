@@ -7,6 +7,13 @@ export const DEFAULT_BASE_URL = 'https://rebrickable.com/api/v3';
 /** Largest `page_size` Rebrickable accepts */
 export const MAX_PAGE_SIZE = 1000;
 
+/**
+ * Query filters that take a single numeric Rebrickable ID. None of them accept
+ * lists, and some (`in_theme_id`, `color_id`) silently ignore a bad value and
+ * return the whole catalogue, so they're checked before sending.
+ */
+const NUMERIC_ID_PARAMS = ['theme_id', 'in_theme_id', 'part_cat_id', 'color_id'] as const;
+
 export interface ClientOptions {
   /** Your Rebrickable API key, from https://rebrickable.com/users/:username/settings/#api */
   apiKey: string;
@@ -100,7 +107,7 @@ export class HttpClient {
   }
 
   #resolve(path: string, query: QueryParams = {}): URL {
-    assertPageSize(query);
+    assertValidQuery(query);
     return appendQuery(new URL(path.replace(/^\/+/, ''), this.#baseUrl), query);
   }
 
@@ -149,15 +156,27 @@ export class HttpClient {
   }
 }
 
-/** Fail locally rather than sending a request Rebrickable will reject */
-const assertPageSize = (query: QueryParams): void => {
-  if (!('page_size' in query) || query.page_size === undefined) return;
+/** Fail locally rather than sending a request Rebrickable would reject or misread */
+const assertValidQuery = (query: QueryParams): void => {
+  const values: Record<string, unknown> = { ...query };
 
-  const size = query.page_size;
-  if (typeof size !== 'number' || !Number.isInteger(size) || size < 1 || size > MAX_PAGE_SIZE) {
+  const size = values.page_size;
+  if (
+    size !== undefined &&
+    (typeof size !== 'number' || !Number.isInteger(size) || size < 1 || size > MAX_PAGE_SIZE)
+  ) {
     throw new RangeError(
       `page_size must be a whole number from 1 to ${MAX_PAGE_SIZE}, got ${String(size)}`,
     );
+  }
+
+  for (const param of NUMERIC_ID_PARAMS) {
+    const id = values[param];
+    // Negative IDs and 0 are valid, e.g. color -1 is [Unknown] and 0 is Black
+    if (id !== undefined && !Number.isInteger(id)) {
+      const got = typeof id === 'string' ? `"${id}"` : String(id);
+      throw new TypeError(`${param} must be a whole number, got ${got}`);
+    }
   }
 };
 
