@@ -61,6 +61,29 @@ describe.skipIf(!apiKey)('live API', { timeout: 30_000 }, () => {
     });
   });
 
+  describe('parts', () => {
+    it('gets a part with its full details', async () => {
+      const part = await rebrickable.parts.get('3001');
+
+      expect(part).toMatchObject({ part_num: '3001', print_of: null });
+      expect(part.molds.length).toBeGreaterThan(0);
+    });
+
+    it('lists several parts by part number', async () => {
+      const parts = await rebrickable.parts.list({ part_nums: ['3001', '3002'] });
+
+      expect(parts.results.map((p) => p.part_num).sort()).toEqual(['3001', '3002']);
+    });
+
+    it('lists the colors of a part and gets one color', async () => {
+      const colors = await rebrickable.parts.colors('3001', { page_size: 3 });
+      const red = await rebrickable.parts.color('3001', 4);
+
+      expect(colors.count).toBeGreaterThan(0);
+      expect(red).toMatchObject({ year_from: expect.any(Number), elements: expect.any(Array) });
+    });
+  });
+
   describe('themes', () => {
     it('gets a theme by ID', async () => {
       const theme = await rebrickable.themes.get(158);
