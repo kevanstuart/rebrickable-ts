@@ -16,7 +16,7 @@ export interface LegoSet {
 
 export interface ListSetsInput extends PaginationParameters, OrderingParameters {
   search?: string;
-  theme_id?: number | string;
+  theme_id?: number;
   min_year?: number;
   max_year?: number;
   min_parts?: number;
@@ -67,5 +67,5 @@ export interface SetInventoryItem {
 /** One minifig in a set's inventory */
 export type SetMinifig = SetInventoryItem;
 
-export type SetMinifigsInput = PaginationParameters;
-export type SetSubsetsInput = PaginationParameters;
+export interface SetMinifigsInput extends PaginationParameters {}
+export interface SetSubsetsInput extends PaginationParameters {}

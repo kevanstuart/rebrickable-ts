@@ -221,4 +221,38 @@ describe('HttpClient', () => {
       ]);
     });
   });
+
+  describe('numeric ID validation', () => {
+    it.each([
+      ['theme_id', '158,171', '"158,171"'],
+      ['in_theme_id', 'abc', '"abc"'],
+      ['part_cat_id', 1.5, '1.5'],
+      ['color_id', Number.NaN, 'NaN'],
+    ])('rejects %s = %s without a request', async (param, value, shown) => {
+      const fake = createFakeFetch();
+      const http = client(fake.fetch);
+      const query = { [param]: value };
+
+      await expect(http.get('/lego/sets/', { query })).rejects.toThrow(
+        new TypeError(`${param} must be a whole number, got ${shown}`),
+      );
+      await expect(http.paginate('/lego/sets/', { query }).next()).rejects.toThrow(TypeError);
+      expect(fake.fetch).not.toHaveBeenCalled();
+    });
+
+    it('accepts whole numbers, including 0 and negative IDs', async () => {
+      const fake = createFakeFetch({ body: {} }, { body: {} }, { body: {} });
+      const http = client(fake.fetch);
+
+      await http.get('/lego/parts/', { query: { color_id: 0 } });
+      await http.get('/lego/parts/', { query: { color_id: -1 } });
+      await http.get('/lego/sets/', { query: { theme_id: 158 } });
+
+      expect(fake.urls()).toEqual([
+        `${BASE}/lego/parts/?color_id=0`,
+        `${BASE}/lego/parts/?color_id=-1`,
+        `${BASE}/lego/sets/?theme_id=158`,
+      ]);
+    });
+  });
 });

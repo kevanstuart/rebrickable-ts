@@ -61,8 +61,12 @@ export interface ListPartsInput extends PaginationParameters, OrderingParameters
   part_num?: string;
   /** Several part numbers at once; sent comma-separated */
   part_nums?: readonly string[];
-  part_cat_id?: number | string;
-  color_id?: number | string;
+  part_cat_id?: number;
+  /**
+   * Only parts that have appeared in this color. Rebrickable ignores an
+   * invalid value and returns every part, so it's checked before sending
+   */
+  color_id?: number;
   bricklink_id?: string;
   brickowl_id?: string;
   lego_id?: string;

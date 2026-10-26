@@ -58,6 +58,16 @@ describe('PartsResource', () => {
     });
   });
 
+  it('only accepts numeric category and color IDs', async () => {
+    const { parts, fetch } = setup();
+
+    // @ts-expect-error part_cat_id is a number
+    await expect(parts.list({ part_cat_id: '11' })).rejects.toThrow(TypeError);
+    // @ts-expect-error color_id is a number; Rebrickable would ignore '4,0' and return every part
+    await expect(parts.list({ color_id: '4,0' })).rejects.toThrow(TypeError);
+    expect(fetch).not.toHaveBeenCalled();
+  });
+
   describe('listAll', () => {
     it('iterates over every part with the maximum page size', async () => {
       const [first, second] = partsList.body.results;

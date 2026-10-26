@@ -51,6 +51,14 @@ describe('MinifigsResource', () => {
     minifigs.listAll({ page: 2 });
   });
 
+  it('only accepts a numeric theme ID, which Rebrickable would otherwise ignore', async () => {
+    const { minifigs, fetch } = setup();
+
+    // @ts-expect-error in_theme_id is a number
+    await expect(minifigs.list({ in_theme_id: '158' })).rejects.toThrow(TypeError);
+    expect(fetch).not.toHaveBeenCalled();
+  });
+
   it('gets a single minifig by its number', async () => {
     const { minifigs, urls } = setup({ body: minifigsGet.body });
 
