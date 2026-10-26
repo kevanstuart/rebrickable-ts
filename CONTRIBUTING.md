@@ -73,7 +73,7 @@ Copy `src/resources/colors.ts` as the template, then:
 ### Dependencies and runtime
 
 - **Keep the published package free of runtime dependencies.**
-- **Use only APIs available in Node 18 in `src/`** (for example, a `for await` loop rather than `Array.fromAsync`). Development tooling may use newer Node.
+- **Use only APIs available in Node 18 in `src/`** (for example, a `for await` loop rather than `Array.fromAsync`). Development tooling may use newer Node. CI checks the built package on Node 18 with `scripts/smoke-dist.mjs`.
 
 ## Testing
 
@@ -85,6 +85,8 @@ Copy `src/resources/colors.ts` as the template, then:
 ## Workflow
 
 - **Branch per change** from an up-to-date `main` (`feature/<name>`, `chore/<name>`, `docs/<name>`), merged through a pull request.
+- **CI** (`.github/workflows/ci.yml`) runs `yarn verify` on Node 22 and 24 and the Node 18 smoke test on every pull request. A separate weekly workflow (`live-api.yml`) re-captures fixtures and runs the live tests, using the `REBRICKABLE_API_KEY` repository secret.
+- **Changes users will notice** get an entry in `CHANGELOG.md`.
 - **Commit messages** use a lowercase, past-tense Conventional Commits summary, followed by one-sentence bullets:
 
   ```

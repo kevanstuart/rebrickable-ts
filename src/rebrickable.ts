@@ -12,7 +12,7 @@ import { ThemesResource } from './resources/themes';
  *
  * @example
  * ```ts
- * const rebrickable = new Rebrickable({ apiKey: process.env.REBRICKABLE_API_KEY });
+ * const rebrickable = new Rebrickable({ apiKey: 'your-api-key' });
  * const set = await rebrickable.sets.get('75034-1');
  * ```
  */
