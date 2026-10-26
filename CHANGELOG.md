@@ -2,7 +2,7 @@
 
 All notable changes to this package are documented here. The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and versions follow [Semantic Versioning](https://semver.org/).
 
-## [0.1.0] - Unreleased
+## [0.1.0] - 2026-10-26
 
 First release.
 
@@ -16,3 +16,5 @@ First release.
 - Local rejection of invalid input before any request: empty IDs, `page_size` outside 1–1000, and numeric ID filters that aren't whole numbers.
 - Request cancelling with `AbortSignal`, and a custom `fetch` option.
 - ESM, CommonJS and type definitions, with no runtime dependencies. Supports Node.js 18 and later.
+
+[0.1.0]: https://github.com/kevanstuart/rebrickable-ts/releases/tag/v0.1.0
