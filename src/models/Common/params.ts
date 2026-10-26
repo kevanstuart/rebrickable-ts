@@ -13,3 +13,6 @@ export interface OrderingParameters {
 
 /** Input for `listAll` methods, which walk every page themselves */
 export type AllPagesInput<T extends PaginationParameters> = Omit<T, 'page'>;
+
+/** Input that asks for full part details, used to type the details overloads */
+export type WithDetails<T> = T & { inc_part_details: true };
