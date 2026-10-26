@@ -1,6 +1,6 @@
 {
   "name": "rebrickable-client",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "An unofficial TypeScript client for the Rebrickable LEGO API",
   "keywords": [
     "rebrickable",
@@ -13,7 +13,7 @@
   "bugs": "https://github.com/kevanstuart/rebrickable-ts/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/kevanstuart/rebrickable-ts"
+    "url": "git+https://github.com/kevanstuart/rebrickable-ts.git"
   },
   "license": "MIT",
   "author": {
