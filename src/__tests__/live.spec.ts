@@ -46,6 +46,27 @@ describe.skipIf(!apiKey)('live API', { timeout: 30_000 }, () => {
     });
   });
 
+  describe('minifigs', () => {
+    it('gets a minifig by its number', async () => {
+      const minifig = await rebrickable.minifigs.get('fig-010697');
+
+      expect(minifig).toMatchObject({ set_num: 'fig-010697', num_parts: expect.any(Number) });
+    });
+
+    it('lists the parts of a minifig', async () => {
+      const parts = await rebrickable.minifigs.parts('fig-010697');
+
+      expect(parts.count).toBe(4);
+      expect(parts.results[0]?.set_num).toBe('fig-010697');
+    });
+
+    it('lists the sets a minifig appears in', async () => {
+      const sets = await rebrickable.minifigs.sets('fig-010697');
+
+      expect(sets.results.map((s) => s.set_num)).toContain('30625-1');
+    });
+  });
+
   describe('part categories', () => {
     it('gets a part category by ID', async () => {
       const category = await rebrickable.partCategories.get(11);

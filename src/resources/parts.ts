@@ -12,9 +12,8 @@ import type {
   PartColorSetsInput,
   PartColorsInput,
   PartDetails,
+  WithDetails,
 } from '../models';
-
-type WithDetails<T> = T & { inc_part_details: true };
 
 /**
  * Parts, the colors each part comes in, and the sets that use a part in a color.

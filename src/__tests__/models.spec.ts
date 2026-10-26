@@ -4,6 +4,9 @@ import type {
   Color,
   Element,
   LegoSet,
+  Minifig,
+  MinifigPart,
+  MinifigSet,
   Part,
   PartCategory,
   PartColor,
@@ -18,6 +21,11 @@ import type {
 import colorsGet from './fixtures/colors.get.json';
 import colorsList from './fixtures/colors.list.json';
 import elementsGet from './fixtures/elements.get.json';
+import minifigsGet from './fixtures/minifigs.get.json';
+import minifigsList from './fixtures/minifigs.list.json';
+import minifigsPartsDetails from './fixtures/minifigs.parts.details.json';
+import minifigsParts from './fixtures/minifigs.parts.json';
+import minifigsSets from './fixtures/minifigs.sets.json';
 import partCategoriesGet from './fixtures/part-categories.get.json';
 import partCategoriesList from './fixtures/part-categories.list.json';
 import partsColor from './fixtures/parts.color.json';
@@ -54,6 +62,18 @@ describe('models match captured API responses', () => {
 
   it('elements', () => {
     const checked: unknown[] = [elementsGet.body satisfies Element];
+
+    expect(checked).not.toContain(undefined);
+  });
+
+  it('minifigs', () => {
+    const checked: unknown[] = [
+      minifigsList.body satisfies APIResourceList<Minifig>,
+      minifigsGet.body satisfies Minifig,
+      minifigsParts.body satisfies APIResourceList<MinifigPart>,
+      minifigsPartsDetails.body satisfies APIResourceList<MinifigPart<PartDetails>>,
+      minifigsSets.body satisfies APIResourceList<MinifigSet>,
+    ];
 
     expect(checked).not.toContain(undefined);
   });

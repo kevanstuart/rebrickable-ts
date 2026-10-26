@@ -1,6 +1,7 @@
 import { type ClientOptions, HttpClient } from './http/client';
 import { ColorsResource } from './resources/colors';
 import { ElementsResource } from './resources/elements';
+import { MinifigsResource } from './resources/minifigs';
 import { PartCategoriesResource } from './resources/part-categories';
 import { PartsResource } from './resources/parts';
 import { SetsResource } from './resources/sets';
@@ -18,6 +19,7 @@ import { ThemesResource } from './resources/themes';
 export class Rebrickable {
   readonly colors: ColorsResource;
   readonly elements: ElementsResource;
+  readonly minifigs: MinifigsResource;
   readonly partCategories: PartCategoriesResource;
   readonly parts: PartsResource;
   readonly sets: SetsResource;
@@ -28,6 +30,7 @@ export class Rebrickable {
 
     this.colors = new ColorsResource(http);
     this.elements = new ElementsResource(http);
+    this.minifigs = new MinifigsResource(http);
     this.partCategories = new PartCategoriesResource(http);
     this.parts = new PartsResource(http);
     this.sets = new SetsResource(http);

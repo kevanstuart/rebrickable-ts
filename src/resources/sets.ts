@@ -15,6 +15,7 @@ import type {
   SetPart,
   SetPartsInput,
   SetSubsetsInput,
+  WithDetails,
 } from '../models';
 
 /**
@@ -81,7 +82,7 @@ export class SetsResource {
    */
   parts(
     setNum: string,
-    params: SetPartsInput & { inc_part_details: true },
+    params: WithDetails<SetPartsInput>,
     options?: CallOptions,
   ): Promise<APIResourceList<SetPart<PartDetails>>>;
   parts(
